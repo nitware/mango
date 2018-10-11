@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC239F92-FC82-49FC-A011-ACD23AA7C6D4}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mango.Setup</RootNamespace>
+    <AssemblyName>Mango.Setup</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mango.Infrastructure\Assembly\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mango.Infrastructure\Assembly\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mango.Infrastructure\Assembly\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mango.Infrastructure\Assembly\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Silverlight, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mango.Infrastructure\Assembly\Microsoft.Practices.Unity.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\ICompanyDepartmentService.cs" />
+    <Compile Include="Interfaces\IMetricsService.cs" />
+    <Compile Include="Interfaces\IMetricsSetupService.cs" />
+    <Compile Include="Interfaces\IPeriodSetupService.cs" />
+    <Compile Include="Interfaces\IStatusService.cs" />
+    <Compile Include="Interfaces\IUploadService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CompanyDepartmentJobRoleService.cs" />
+    <Compile Include="Services\CompanyDepartmentService.cs" />
+    <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\InpsRatingService.cs" />
+    <Compile Include="Services\InpsService.cs" />
+    <Compile Include="Services\InpsTypeService.cs" />
+    <Compile Include="Services\JobRoleHodService.cs" />
+    <Compile Include="Services\JobRoleService.cs" />
+    <Compile Include="Services\JobRoleSupervisorService.cs" />
+    <Compile Include="Services\LevelService.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\MetricRatingService.cs" />
+    <Compile Include="Services\MetricsPerspectiveService.cs" />
+    <Compile Include="Services\MetricsService.cs" />
+    <Compile Include="Services\MetricsSetupService.cs" />
+    <Compile Include="Services\PeriodService.cs" />
+    <Compile Include="Services\PeriodTypeService.cs" />
+    <Compile Include="Services\RatingService.cs" />
+    <Compile Include="Services\RatingTypeService.cs" />
+    <Compile Include="Services\StaffCdjrService.cs" />
+    <Compile Include="Services\StaffJobLevelService.cs" />
+    <Compile Include="Services\StaffLearningService.cs" />
+    <Compile Include="Services\StaffLocationService.cs" />
+    <Compile Include="Services\StatusService.cs" />
+    <Compile Include="Services\UploadService.cs" />
+    <Compile Include="SetupModule.cs" />
+    <Compile Include="ViewModels\AppraisalReportViewModel.cs" />
+    <Compile Include="ViewModels\CompanyDepartmentJobRoleViewModel.cs" />
+    <Compile Include="ViewModels\CurrentPeriodViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentViewModel.cs" />
+    <Compile Include="ViewModels\JobRoleHodViewModel.cs" />
+    <Compile Include="ViewModels\JobRoleLevelViewModel.cs" />
+    <Compile Include="ViewModels\JobRoleSupervisorViewModel.cs" />
+    <Compile Include="ViewModels\JobRoleViewModel.cs" />
+    <Compile Include="ViewModels\LocationViewModel.cs" />
+    <Compile Include="ViewModels\MetricRatingViewModel.cs" />
+    <Compile Include="ViewModels\MetricsSetupViewModel.cs" />
+    <Compile Include="ViewModels\MetricsViewModel.cs" />
+    <Compile Include="ViewModels\ModifyAllMetricsViewModel.cs" />
+    <Compile Include="ViewModels\ModifyMetricsViewModel.cs" />
+    <Compile Include="ViewModels\ModifyPeriodViewModel.cs" />
+    <Compile Include="ViewModels\NewPeriodViewModel.cs" />
+    <Compile Include="ViewModels\PeriodSetupViewModel.cs" />
+    <Compile Include="ViewModels\PeriodTypeViewModel.cs" />
+    <Compile Include="ViewModels\PeriodViewModelBase.cs" />
+    <Compile Include="ViewModels\RoleSetupViewModel.cs" />
+    <Compile Include="ViewModels\SetupHomeViewModel.cs" />
+    <Compile Include="ViewModels\SetupMenuViewModel.cs" />
+    <Compile Include="ViewModels\SetupViewModel.cs" />
+    <Compile Include="ViewModels\StaffCdjrViewModel.cs" />
+    <Compile Include="ViewModels\StaffJobLevelViewModel.cs" />
+    <Compile Include="ViewModels\StaffLearningViewModel.cs" />
+    <Compile Include="ViewModels\StaffLocationViewModel.cs" />
+    <Compile Include="ViewModels\StaffSetupViewModel.cs" />
+    <Compile Include="ViewModels\Upload\EditInpsViewModel.cs" />
+    <Compile Include="ViewModels\Upload\SetupInpsRatingViewModel.cs" />
+    <Compile Include="ViewModels\Upload\UploadInpsViewModel.cs" />
+    <Compile Include="ViewModels\Upload\SetupNpsViewModel.cs" />
+    <Compile Include="ViewModels\Upload\UploadViewModel.cs" />
+    <Compile Include="Views\AppraisalReportView.xaml.cs">
+      <DependentUpon>AppraisalReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompanyDepartmentJobRoleView.xaml.cs">
+      <DependentUpon>CompanyDepartmentJobRoleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrentPeriodView.xaml.cs">
+      <DependentUpon>CurrentPeriodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentView.xaml.cs">
+      <DependentUpon>DepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobRoleHodView.xaml.cs">
+      <DependentUpon>JobRoleHodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobRoleLevelView.xaml.cs">
+      <DependentUpon>JobRoleLevelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobRoleSupervisorView.xaml.cs">
+      <DependentUpon>JobRoleSupervisorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobRoleView.xaml.cs">
+      <DependentUpon>JobRoleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationView.xaml.cs">
+      <DependentUpon>LocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MetricRatingView.xaml.cs">
+      <DependentUpon>MetricRatingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MetricsSetupView.xaml.cs">
+      <DependentUpon>MetricsSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MetricsView.xaml.cs">
+      <DependentUpon>MetricsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyAllMetricsView.xaml.cs">
+      <DependentUpon>ModifyAllMetricsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyMetricsView.xaml.cs">
+      <DependentUpon>ModifyMetricsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyPeriodView.xaml.cs">
+      <DependentUpon>ModifyPeriodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewPeriodView.xaml.cs">
+      <DependentUpon>NewPeriodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeriodSetupView.xaml.cs">
+      <DependentUpon>PeriodSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeriodTypeView.xaml.cs">
+      <DependentUpon>PeriodTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoleSetupView.xaml.cs">
+      <DependentUpon>RoleSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetupHomeView.xaml.cs">
+      <DependentUpon>SetupHomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetupMenuView.xaml.cs">
+      <DependentUpon>SetupMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetupView.xaml.cs">
+      <DependentUpon>SetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffCdjrView.xaml.cs">
+      <DependentUpon>StaffCdjrView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffJobLevelView.xaml.cs">
+      <DependentUpon>StaffJobLevelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffLearningView.xaml.cs">
+      <DependentUpon>StaffLearningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffLocationView.xaml.cs">
+      <DependentUpon>StaffLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffSetupView.xaml.cs">
+      <DependentUpon>StaffSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Upload\EditInpsView.xaml.cs">
+      <DependentUpon>EditInpsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Upload\SetupInpsRatingView.xaml.cs">
+      <DependentUpon>SetupInpsRatingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Upload\UploadInpsView.xaml.cs">
+      <DependentUpon>UploadInpsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Upload\SetupNpsView.xaml.cs">
+      <DependentUpon>SetupNpsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Upload\UploadView.xaml.cs">
+      <DependentUpon>UploadView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mango.Infrastructure\Mango.Infrastructure.csproj">
+      <Project>{6BBC7177-6B89-46D7-846E-CEE8C527AC71}</Project>
+      <Name>Mango.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Views\AppraisalReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CompanyDepartmentJobRoleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CurrentPeriodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\JobRoleHodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\JobRoleLevelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\JobRoleSupervisorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\JobRoleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MetricRatingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MetricsSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MetricsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyAllMetricsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyMetricsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyPeriodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NewPeriodView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PeriodSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PeriodTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RoleSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SetupHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SetupMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffCdjrView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffJobLevelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffLearningView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffLocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Upload\EditInpsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Upload\SetupInpsRatingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Upload\UploadInpsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Upload\SetupNpsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Upload\UploadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Mango.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mango.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49464/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Mango.Model.Model" />
+  <xs:complexType name="Period">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Span" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Mango.Model.Model" minOccurs="0" name="Status" nillable="true" type="q1:Status" />
+      <xs:element minOccurs="0" name="StatusID" type="xs:unsignedByte" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Mango.Model.Model" minOccurs="0" name="Type" nillable="true" type="q2:PeriodType" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Period" nillable="true" type="tns:Period" />
+  <xs:complexType name="Company">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Company" nillable="true" type="tns:Company" />
+  <xs:complexType name="Department">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="JobRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobRole" nillable="true" type="tns:JobRole" />
+  <xs:complexType name="Fault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Advice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fault" nillable="true" type="tns:Fault" />
+  <xs:complexType name="ArrayOfMetricRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetricRating" nillable="true" type="tns:MetricRating" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetricRating" nillable="true" type="tns:ArrayOfMetricRating" />
+  <xs:complexType name="MetricRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" type="xs:decimal" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Mango.Model.Model" minOccurs="0" name="Metrics" nillable="true" type="q3:Metrics" />
+      <xs:element minOccurs="0" name="Period" nillable="true" type="tns:Period" />
+      <xs:element minOccurs="0" name="Rating" nillable="true" type="tns:Rating" />
+      <xs:element minOccurs="0" name="RatingType" nillable="true" type="tns:RatingType" />
+      <xs:element minOccurs="0" name="To" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetricRating" nillable="true" type="tns:MetricRating" />
+  <xs:complexType name="Rating">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rating" nillable="true" type="tns:Rating" />
+  <xs:complexType name="RatingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RatingType" nillable="true" type="tns:RatingType" />
+  <xs:complexType name="ArrayOfRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rating" nillable="true" type="tns:Rating" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRating" nillable="true" type="tns:ArrayOfRating" />
+  <xs:complexType name="ArrayOfRatingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RatingType" nillable="true" type="tns:RatingType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRatingType" nillable="true" type="tns:ArrayOfRatingType" />
+  <xs:complexType name="ArrayOfCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Company" nillable="true" type="tns:Company" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompany" nillable="true" type="tns:ArrayOfCompany" />
+  <xs:complexType name="Staff">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="tns:Company" />
+      <xs:element minOccurs="0" name="CompanyDepartmentJobRoleId" type="xs:int" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSupervisor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JobRole" nillable="true" type="tns:JobRole" />
+      <xs:element minOccurs="0" name="JobRoleLevel" nillable="true" type="tns:JobRoleLevel" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Level" nillable="true" type="tns:Level" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MetricsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
+      <xs:element minOccurs="0" name="Type" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Staff" nillable="true" type="tns:Staff" />
+  <xs:complexType name="JobRoleLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobRoleLevel" nillable="true" type="tns:JobRoleLevel" />
+  <xs:complexType name="Level">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Level" nillable="true" type="tns:Level" />
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location" nillable="true" type="tns:Location" />
+  <xs:complexType name="Role">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SetupBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasUser" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Rights" nillable="true" type="tns:ArrayOfRight" />
+          <xs:element minOccurs="0" name="UserRight" nillable="true" type="tns:UserRight" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="SetupBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetupBase" nillable="true" type="tns:SetupBase" />
+  <xs:complexType name="ModelBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ModelBase" nillable="true" type="tns:ModelBase" />
+  <xs:complexType name="ArrayOfRight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Right" nillable="true" type="tns:Right" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRight" nillable="true" type="tns:ArrayOfRight" />
+  <xs:complexType name="Right">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SetupBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsInRole" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Right" nillable="true" type="tns:Right" />
+  <xs:complexType name="UserRight">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanAcceptOrRejectAppraisal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanAppraiseStaff" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanAssignRightToRole" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanAssignRoleToUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanAssignRolesUnderHod" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanAssignRolesUnderSupervisor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanCreateNewPeriod" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanDoAppraisal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanManageMarkOperation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanManageReport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanManageSetup" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanManageUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanModifyPeriod" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetCurrentPeriod" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupCdjr" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupDepartment" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupJobLevel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupJobRole" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupMetricRating" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupMetrics" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupRight" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupRole" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupStaffLevel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanSetupUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanViewReports" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Rights" nillable="true" type="tns:ArrayOfRight" />
+      <xs:element minOccurs="0" name="View" nillable="true" type="tns:ArrayOfRight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRight" nillable="true" type="tns:UserRight" />
+  <xs:complexType name="ArrayOfLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocation" nillable="true" type="tns:ArrayOfLocation" />
+  <xs:complexType name="ArrayOfLoginDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoginDetail" nillable="true" type="tns:LoginDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoginDetail" nillable="true" type="tns:ArrayOfLoginDetail" />
+  <xs:complexType name="LoginDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsActivated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFirstLogon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="tns:Staff" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginDetail" nillable="true" type="tns:LoginDetail" />
+  <xs:complexType name="Appraisal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppraisalDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hod" nillable="true" type="tns:Staff" />
+      <xs:element minOccurs="0" name="HodAppraisalDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Period" nillable="true" type="tns:Period" />
+      <xs:element minOccurs="0" name="ResponseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="tns:Staff" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Mango.Model.Model" minOccurs="0" name="Status" nillable="true" type="q4:Status" />
+      <xs:element minOccurs="0" name="Supervisor" nillable="true" type="tns:Staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Appraisal" nillable="true" type="tns:Appraisal" />
+  <xs:complexType name="ArrayOfPaceArea">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaceArea" nillable="true" type="tns:PaceArea" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaceArea" nillable="true" type="tns:ArrayOfPaceArea" />
+  <xs:complexType name="PaceArea">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Score" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaceArea" nillable="true" type="tns:PaceArea" />
+  <xs:complexType name="Metrices">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerActualScoreTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CustomerSumTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CustomerTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerTargetValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfCustomer" />
+      <xs:element minOccurs="0" name="FinancialActualScoreTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FinancialSumTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FinancialTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinancialTargetValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Financials" nillable="true" type="tns:ArrayOfFinancial" />
+      <xs:element minOccurs="0" name="Grade" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="PeopleActualScoreTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PeopleSumTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PeopleTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PeopleTargetValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Peoples" nillable="true" type="tns:ArrayOfPeople" />
+      <xs:element minOccurs="0" name="ProcessActualScoreTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProcessSumTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProcessTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessTargetValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Processes" nillable="true" type="tns:ArrayOfProcess" />
+      <xs:element minOccurs="0" name="RiskActualScoreTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RiskSumTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RiskTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RiskTargetValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Risks" nillable="true" type="tns:ArrayOfRisk" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Metrices" nillable="true" type="tns:Metrices" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Metric">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="Metric">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyDepartmentJobRoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="DataSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsSupervisor" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Kpi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Measure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MetricRatings" nillable="true" type="tns:ArrayOfMetricRating" />
+          <xs:element minOccurs="0" name="Percentage" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Period" nillable="true" type="tns:Period" />
+          <xs:element minOccurs="0" name="Perspective" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PerspectiveId" type="xs:int" />
+          <xs:element minOccurs="0" name="Rating" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ResponsibilityDepartmentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Score" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StaffMetricId" type="xs:int" />
+          <xs:element minOccurs="0" name="Target" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalScore" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Metric" nillable="true" type="tns:Metric" />
+  <xs:complexType name="ArrayOfFinancial">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Financial" nillable="true" type="tns:Financial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFinancial" nillable="true" type="tns:ArrayOfFinancial" />
+  <xs:complexType name="Financial">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Metric">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Financial" nillable="true" type="tns:Financial" />
+  <xs:complexType name="ArrayOfPeople">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="People" nillable="true" type="tns:People" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeople" nillable="true" type="tns:ArrayOfPeople" />
+  <xs:complexType name="People">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Metric">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="People" nillable="true" type="tns:People" />
+  <xs:complexType name="ArrayOfProcess">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Process" nillable="true" type="tns:Process" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcess" nillable="true" type="tns:ArrayOfProcess" />
+  <xs:complexType name="Process">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Metric">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Process" nillable="true" type="tns:Process" />
+  <xs:complexType name="ArrayOfRisk">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Risk" nillable="true" type="tns:Risk" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRisk" nillable="true" type="tns:ArrayOfRisk" />
+  <xs:complexType name="Risk">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Metric">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Risk" nillable="true" type="tns:Risk" />
+  <xs:complexType name="ArrayOfOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Option" nillable="true" type="tns:Option" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOption" nillable="true" type="tns:ArrayOfOption" />
+  <xs:complexType name="Option">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Option" nillable="true" type="tns:Option" />
+  <xs:complexType name="Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppraisalHeaderId" type="xs:long" />
+      <xs:element minOccurs="0" name="AppraiseeComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommentId" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="HodComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionId" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="RecommendationId" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Strenght" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupervisorComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrainingNeed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weakness" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comment" nillable="true" type="tns:Comment" />
+  <xs:complexType name="ArrayOfRecommendation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recommendation" nillable="true" type="tns:Recommendation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecommendation" nillable="true" type="tns:ArrayOfRecommendation" />
+  <xs:complexType name="Recommendation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Recommendation" nillable="true" type="tns:Recommendation" />
+  <xs:complexType name="ArrayOfStaff">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Staff" nillable="true" type="tns:Staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaff" nillable="true" type="tns:ArrayOfStaff" />
+  <xs:complexType name="ArrayOfPace">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pace" nillable="true" type="tns:Pace" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPace" nillable="true" type="tns:ArrayOfPace" />
+  <xs:complexType name="Pace">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AppraisalHeaderId" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Grade" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsSupervisor" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Justification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaceAreaId" type="xs:int" />
+          <xs:element minOccurs="0" name="PeriodId" type="xs:int" />
+          <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Score" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StaffId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Weight" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Pace" nillable="true" type="tns:Pace" />
+  <xs:complexType name="ArrayOfGradeScale">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GradeScale" nillable="true" type="tns:GradeScale" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGradeScale" nillable="true" type="tns:ArrayOfGradeScale" />
+  <xs:complexType name="GradeScale">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="To" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeScale" nillable="true" type="tns:GradeScale" />
+  <xs:complexType name="ArrayOfPaceRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaceRating" nillable="true" type="tns:PaceRating" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaceRating" nillable="true" type="tns:ArrayOfPaceRating" />
+  <xs:complexType name="PaceRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="From" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Grade" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="To" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaceRating" nillable="true" type="tns:PaceRating" />
+  <xs:complexType name="ArrayOfPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Period" nillable="true" type="tns:Period" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeriod" nillable="true" type="tns:ArrayOfPeriod" />
+  <xs:complexType name="Learning">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PercentageScore" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PeriodId" type="xs:int" />
+      <xs:element minOccurs="0" name="StaffId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrainingScore" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Learning" nillable="true" type="tns:Learning" />
+  <xs:complexType name="ArrayOfAppraisalReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppraisalReport" nillable="true" type="tns:AppraisalReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppraisalReport" nillable="true" type="tns:ArrayOfAppraisalReport" />
+  <xs:complexType name="AppraisalReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppraiseeComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HodComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobRoleLevelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobRoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MetricRating" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="MetricScore" type="xs:double" />
+      <xs:element minOccurs="0" name="PaceGrade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaceScore" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PeriodName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recommendation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Strength" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupervisorComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupervisorId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupervisorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrainingNeeds" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weakness" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppraisalReport" nillable="true" type="tns:AppraisalReport" />
+  <xs:complexType name="ArrayOfRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRole" nillable="true" type="tns:ArrayOfRole" />
+  <xs:complexType name="ArrayOfJobRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobRole" nillable="true" type="tns:JobRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobRole" nillable="true" type="tns:ArrayOfJobRole" />
+  <xs:complexType name="ArrayOfLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Level" nillable="true" type="tns:Level" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLevel" nillable="true" type="tns:ArrayOfLevel" />
+  <xs:complexType name="ArrayOfDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
+</xs:schema>

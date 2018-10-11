@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{78023293-619F-4BCB-AA7D-AA5D260A83D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mango.Business</RootNamespace>
+    <AssemblyName>Mango.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppraisalLogic.cs" />
+    <Compile Include="AssessmentLevelLogic.cs" />
+    <Compile Include="AssessmentPeriodLogic.cs" />
+    <Compile Include="BusinessLogicBase.cs" />
+    <Compile Include="CatererLogic.cs" />
+    <Compile Include="CompanyDepartmentJobRoleLogic.cs" />
+    <Compile Include="CompanyDepartmentLogic.cs" />
+    <Compile Include="CompanyJobRoleLogic.cs" />
+    <Compile Include="CompanyLogic.cs" />
+    <Compile Include="CurrentPeriodLogic.cs" />
+    <Compile Include="DbFacade\AppraisalHeaderDbFacade.cs" />
+    <Compile Include="DbFacade\AppraisalReportFacade.cs" />
+    <Compile Include="DbFacade\CommentDbFacade.cs" />
+    <Compile Include="DbFacade\CurrentPeriodDbFacade.cs" />
+    <Compile Include="DbFacade\GradeScaleDbFacade.cs" />
+    <Compile Include="DbFacade\JobRoleSupervisorDbFacade.cs" />
+    <Compile Include="DbFacade\LearningDbFacade.cs" />
+    <Compile Include="DbFacade\MetricDbFacade.cs" />
+    <Compile Include="DbFacade\MetricRatingDbFacade.cs" />
+    <Compile Include="DbFacade\OptionDbFacade.cs" />
+    <Compile Include="DbFacade\PaceAreaDbFacade.cs" />
+    <Compile Include="DbFacade\PaceDbFacade.cs" />
+    <Compile Include="DbFacade\PaceRatingDbFacade.cs" />
+    <Compile Include="DbFacade\PeriodDbFacade.cs" />
+    <Compile Include="DbFacade\RecommendationDbFacade.cs" />
+    <Compile Include="DbFacade\StaffDbFacade.cs" />
+    <Compile Include="DbFacade\StaffKpiMetricDbFacade.cs" />
+    <Compile Include="DbFacade\StaffInpsDbFacade.cs" />
+    <Compile Include="DbFacade\StaffMetricDbFacade.cs" />
+    <Compile Include="DbFacade\StaffAssessmentDbFacade.cs" />
+    <Compile Include="DepartmentLogic.cs" />
+    <Compile Include="EmailLogic.cs" />
+    <Compile Include="InpsTypeLogic.cs" />
+    <Compile Include="JobRoleHodLogic.cs" />
+    <Compile Include="JobRoleLogic.cs" />
+    <Compile Include="JobRoleSupervisorLogic.cs" />
+    <Compile Include="LevelLogic.cs" />
+    <Compile Include="LocationLogic.cs" />
+    <Compile Include="LoginDetailLogic.cs" />
+    <Compile Include="MetricRatingLogic.cs" />
+    <Compile Include="MetricsLogic.cs" />
+    <Compile Include="MetricsPerspectiveLogic.cs" />
+    <Compile Include="InpsLogic.cs" />
+    <Compile Include="InpsRatingLogic.cs" />
+    <Compile Include="PeriodLogic.cs" />
+    <Compile Include="PeriodTypeLogic.cs" />
+    <Compile Include="PotentialAssessmentLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingLogic.cs" />
+    <Compile Include="RatingTypeLogic.cs" />
+    <Compile Include="RightLogic.cs" />
+    <Compile Include="RoleLogic.cs" />
+    <Compile Include="RoleRightLogic.cs" />
+    <Compile Include="ScoreLogic.cs" />
+    <Compile Include="StaffAssessmentLogic.cs" />
+    <Compile Include="StaffCdjrLogic.cs" />
+    <Compile Include="StaffInpsLogic.cs" />
+    <Compile Include="StaffLearningLogic.cs" />
+    <Compile Include="StaffLevelLogic.cs" />
+    <Compile Include="StaffLocationLogic.cs" />
+    <Compile Include="StaffLogic.cs" />
+    <Compile Include="StaffMetricLogic.cs" />
+    <Compile Include="StatusLogic.cs" />
+    <Compile Include="UtilityLogic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mango.DataAccess\Mango.DataAccess.csproj">
+      <Project>{D6F037D1-0B43-4D67-BE17-EA69476DE5AA}</Project>
+      <Name>Mango.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mango.Data\Mango.Data.csproj">
+      <Project>{D0AA80DB-41A3-4288-AA66-80DC7CB75F41}</Project>
+      <Name>Mango.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mango.Model\Mango.Model.csproj">
+      <Project>{1C5ABDE9-4F4C-41A0-A0F9-3B2A2D8E457A}</Project>
+      <Name>Mango.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Mango.Home.Views.HomeView"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:commands="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid Margin="10,3,10,3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+
+            <Border Margin="0,0,0,10" Grid.Row="0" Height="100" Grid.ColumnSpan="4" BorderThickness="0,0,0,3" BorderBrush="Silver"  >
+                <TextBlock FontSize="12" TextWrapping="Wrap">Application brief description goes here...</TextBlock>
+            </Border>
+
+            <Border Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="0,0,1,0" >
+
+                <HyperlinkButton commands:Click.Command="{Binding ManageReturnCommand}" HorizontalContentAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="70" Width="80" Content="Setup" FontWeight="Bold" FontSize="14" Foreground="Black">
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/message.jpg" />
+                    </HyperlinkButton.Background>
+                </HyperlinkButton>
+
+            </Border>
+            <StackPanel Margin="10,0,30,0" Grid.Row="1" Grid.Column="1" >
+                <TextBlock FontSize="12" TextWrapping="Wrap">Setup module is rich with functionalities that enables authorised users to manage appraisal system with ease. Users are allowed to perform the following functions:</TextBlock>
+                <TextBlock Margin="20,5,0,0" FontSize="12" TextWrapping="Wrap">1. Job Role setup.</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">2. Job Level setup.</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">3. Assign Staff to Supervisor.</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">4. Assign Staff to HOD.</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">5. Appraisal Period setup.</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">6. Etc...</TextBlock>
+            </StackPanel>
+
+           
+
+            <Border Margin="0,0,0,0" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="2">
+                <!--<Border Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">-->
+                <HyperlinkButton commands:Click.Command="{Binding UsersCommand}" VerticalAlignment="Top" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="70" Width="80" Content="Users" Foreground="Black" FontSize="14" FontWeight="Bold">
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/user_group_icon.png" />
+                    </HyperlinkButton.Background>
+                </HyperlinkButton>
+            </Border>
+
+            <StackPanel  Margin="10,0,0,0" Grid.Row="1" Grid.Column="3" >
+                <TextBlock FontSize="12" TextWrapping="Wrap">User manager enables application administrator to create and manage user profiles. The following can easily be done using this module:</TextBlock>
+                <TextBlock Margin="20,5,0,0" FontSize="12" TextWrapping="Wrap">1. Create user</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">2. Create role</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">3. Assign Right(s) to Role</TextBlock>
+                <TextBlock Margin="20,0,0,0" FontSize="12" TextWrapping="Wrap">4. Assign Role to User.</TextBlock>
+                <TextBlock Margin="0,5,0,0" FontSize="12" TextWrapping="Wrap">User profile, roles, etc. could also be modified by system administrator.</TextBlock>
+
+                <!--<TextBlock Margin="0,5,0,0" FontSize="12" TextWrapping="Wrap">User profile, roles, etc. could also be modified by system administrator. To get started, click on the icon on the immediate left, or click on the Users link on the site menu above.</TextBlock>-->
+            </StackPanel>
+
+            <!--<Border Margin="0,25,0,0" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="1" Grid.Row="2" Grid.Column="2">
+                <HyperlinkButton commands:Click.Command="{Binding ReportCommand}" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="70" Width="80" Foreground="Black" Content="Report" FontSize="14" FontWeight="Bold">
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/Reports_logo.jpg" />
+                    </HyperlinkButton.Background>
+                </HyperlinkButton>
+            </Border>-->
+            <!--<TextBlock Margin="10,25,0,2" Grid.Row="2" Grid.Column="3" FontSize="12" TextWrapping="Wrap">All reports can be viewed/printed by an authorised user from this module.</TextBlock>-->
+
+
+            <!--<TextBlock Margin="10,25,0,2" Grid.Row="2" Grid.Column="3" FontSize="12" TextWrapping="Wrap">All reports can be viewed/printed by an authorised user from this module. To get started, click on the icon on the immediate left, or click on the Reports link on the site menu above.</TextBlock>-->
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

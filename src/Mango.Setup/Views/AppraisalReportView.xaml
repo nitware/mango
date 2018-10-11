@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Mango.Setup.Views.AppraisalReportView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:commands="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="1000" >
+
+    <Grid x:Name="LayoutRoot" Margin="10,10,0,10" Background="White">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Margin="0,0,0,0" Grid.Row="0" BorderThickness="0,0,4,0" BorderBrush="Silver"  >
+            <TextBlock Margin="5" FontSize="12" TextWrapping="Wrap">This pane contains links to reports relating to staff appraisal ...</TextBlock>
+        </Border>
+        <toolkit:WrapPanel Grid.Column="1" Margin="10,0,0,10" Name="wrapPanel1"  >
+
+            <Border Margin="15" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="1" Grid.Row="2" Grid.Column="2" Height="95" Width="100">
+                <HyperlinkButton commands:Click.Command="{Binding AppraisalDetailAnalysisReportCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" FontSize="14" FontFamily="Arial" >
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/Reports_logo.jpg" />
+                    </HyperlinkButton.Background>
+                    <HyperlinkButton.Content>
+                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">Staff Appraisal Detail Analysis</TextBlock>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </Border>
+
+            <Border Margin="15" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Silver" BorderThickness="1" Grid.Row="2" Grid.Column="2" Height="95" Width="100">
+                <HyperlinkButton commands:Click.Command="{Binding AppraisalDetailAnalysisWithAllCommentReportCommand}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" FontSize="14" FontFamily="Arial" >
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/Reports_logo.jpg" />
+                    </HyperlinkButton.Background>
+                    <HyperlinkButton.Content >
+                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">Staff Appraisal Detail Analysis With All Comment</TextBlock>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </Border>
+
+
+
+            <!--<Border Margin="15" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="1" Grid.Row="2" Grid.Column="2" Height="95" Width="100">
+                <HyperlinkButton commands:Click.Command="{Binding StockSalesDetailAnalysisByStockReportCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" FontSize="14" FontFamily="Arial" >
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/Reports_logo.jpg" />
+                    </HyperlinkButton.Background>
+                    <HyperlinkButton.Content>
+                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">Product Sales Detail Analysis By Stock</TextBlock>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </Border>
+
+            <Border Margin="15" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="1" Grid.Row="1" Grid.Column="2" Height="95" Width="100">
+                <Border.Background>
+                    <ImageBrush />
+                </Border.Background>
+                <HyperlinkButton commands:Click.Command="{Binding StockSalesAnalysisReportCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" FontSize="14" FontFamily="Arial" >
+                    <HyperlinkButton.Background>
+                        <ImageBrush ImageSource="/Smith.Home;component/Images/user_group_icon.png" />
+                    </HyperlinkButton.Background>
+                    <HyperlinkButton.Content>
+                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">Product Sales Analysis</TextBlock>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </Border>-->
+
+            
+        </toolkit:WrapPanel>
+
+    </Grid>
+</UserControl>

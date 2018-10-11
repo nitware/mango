@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1C5ABDE9-4F4C-41A0-A0F9-3B2A2D8E457A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mango.Model</RootNamespace>
+    <AssemblyName>Mango.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Appraisal.cs" />
+    <Compile Include="Model\AppraisalReport.cs" />
+    <Compile Include="Model\AssessmentLevel.cs" />
+    <Compile Include="Model\CompanyDepartment.cs" />
+    <Compile Include="Model\CompanyJobRole.cs" />
+    <Compile Include="Model\InpsType.cs" />
+    <Compile Include="Model\LoginDetail.cs" />
+    <Compile Include="Model\Inps.cs" />
+    <Compile Include="Model\InpsRating.cs" />
+    <Compile Include="Model\PeriodType.cs" />
+    <Compile Include="Model\Caterer.cs" />
+    <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\CompanyDepartmentJobRole.cs" />
+    <Compile Include="Model\CurrentPeriod.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Fault.cs" />
+    <Compile Include="Model\Financial.cs" />
+    <Compile Include="Model\GradeScale.cs" />
+    <Compile Include="Model\JobRole.cs" />
+    <Compile Include="Model\JobRoleHod.cs" />
+    <Compile Include="Model\JobRoleLevel.cs" />
+    <Compile Include="Model\JobRoleSupervisor.cs" />
+    <Compile Include="Model\Learning.cs" />
+    <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Metric.cs" />
+    <Compile Include="Model\Metrices.cs" />
+    <Compile Include="Model\MetricRating.cs" />
+    <Compile Include="Model\Metrics.cs" />
+    <Compile Include="Model\MetricsPerspective.cs" />
+    <Compile Include="Model\ModelBase.cs" />
+    <Compile Include="Model\Operation.cs" />
+    <Compile Include="Model\Option.cs" />
+    <Compile Include="Model\Pace.cs" />
+    <Compile Include="Model\PaceArea.cs" />
+    <Compile Include="Model\PaceRating.cs" />
+    <Compile Include="Model\People.cs" />
+    <Compile Include="Model\Period.cs" />
+    <Compile Include="Model\Assessment.cs" />
+    <Compile Include="Model\AssessmentPeriod.cs" />
+    <Compile Include="Model\Process.cs" />
+    <Compile Include="Model\Rating.cs" />
+    <Compile Include="Model\RatingCriteria.cs" />
+    <Compile Include="Model\RatingType.cs" />
+    <Compile Include="Model\Recommendation.cs" />
+    <Compile Include="Model\Right.cs" />
+    <Compile Include="Model\Risk.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\RoleRight.cs" />
+    <Compile Include="Model\Score.cs" />
+    <Compile Include="Model\ScoreSummary.cs" />
+    <Compile Include="Model\ScoreTable.cs" />
+    <Compile Include="Model\SetupBase.cs" />
+    <Compile Include="Model\Staff.cs" />
+    <Compile Include="Model\StaffCdjr.cs" />
+    <Compile Include="Model\StaffInps.cs" />
+    <Compile Include="Model\StaffLearning.cs" />
+    <Compile Include="Model\StaffLevel.cs" />
+    <Compile Include="Model\StaffLocation.cs" />
+    <Compile Include="Model\StaffMetric.cs" />
+    <Compile Include="Model\StaffAssessment.cs" />
+    <Compile Include="Model\Status.cs" />
+    <Compile Include="Model\UserRight.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translator\AppraisalTranslator.cs" />
+    <Compile Include="Translator\AssessmentLevelTranslator.cs" />
+    <Compile Include="Translator\AssessmentPeriodTranslator.cs" />
+    <Compile Include="Translator\AssessmentTranslator.cs" />
+    <Compile Include="Translator\CatererTranslator.cs" />
+    <Compile Include="Translator\CompanyDepartmentJobRoleTranslator.cs" />
+    <Compile Include="Translator\CompanyDepartmentTranslator.cs" />
+    <Compile Include="Translator\CompanyJobRoleTranslator.cs" />
+    <Compile Include="Translator\CompanyTranslator.cs" />
+    <Compile Include="Translator\CurrentPeriodTranslator.cs" />
+    <Compile Include="Translator\DepartmentTranslator.cs" />
+    <Compile Include="Translator\InpsTypeTranslator.cs" />
+    <Compile Include="Translator\JobRoleHodTranslator.cs" />
+    <Compile Include="Translator\JobRoleSupervisorTranslator.cs" />
+    <Compile Include="Translator\JobRoleTranslator.cs" />
+    <Compile Include="Translator\LevelTranslator.cs" />
+    <Compile Include="Translator\LocationTranslator.cs" />
+    <Compile Include="Translator\LoginDetailTranslator.cs" />
+    <Compile Include="Translator\MetricRatingTranslator.cs" />
+    <Compile Include="Translator\MetricsPerspectiveTranslator.cs" />
+    <Compile Include="Translator\MetricsTranslator.cs" />
+    <Compile Include="Translator\InpsRatingTranslator.cs" />
+    <Compile Include="Translator\InpsTranslator.cs" />
+    <Compile Include="Translator\PeriodTranslator.cs" />
+    <Compile Include="Translator\PeriodTypeTranslator.cs" />
+    <Compile Include="Translator\RatingCriteriaTranslator.cs" />
+    <Compile Include="Translator\RatingTranslator.cs" />
+    <Compile Include="Translator\RatingTypeTranslator.cs" />
+    <Compile Include="Translator\RightTranslator.cs" />
+    <Compile Include="Translator\RoleRightTranslator.cs" />
+    <Compile Include="Translator\RoleTranslator.cs" />
+    <Compile Include="Translator\ScoreTranslator.cs" />
+    <Compile Include="Translator\StaffAssessmentTranslator.cs" />
+    <Compile Include="Translator\StaffCdjrTranslator.cs" />
+    <Compile Include="Translator\StaffInpsTranslator.cs" />
+    <Compile Include="Translator\StaffLearningTranslator.cs" />
+    <Compile Include="Translator\StaffLevelTranslator.cs" />
+    <Compile Include="Translator\StaffLocationTranslator.cs" />
+    <Compile Include="Translator\StaffMetricTranslator.cs" />
+    <Compile Include="Translator\StatusTranslator.cs" />
+    <Compile Include="Translator\TranslatorBase.cs" />
+    <Compile Include="Translator\StaffTranslator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mango.Data\Mango.Data.csproj">
+      <Project>{D0AA80DB-41A3-4288-AA66-80DC7CB75F41}</Project>
+      <Name>Mango.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

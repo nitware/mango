@@ -1,0 +1,1165 @@
+﻿<UserControl x:Class="Mango.Appraisal.Views.AppraisalView"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+    xmlns:local="clr-namespace:Mango.Infrastructure.Converters;assembly=Mango.Infrastructure"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:commands="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+    xmlns:control="clr-namespace:Mango.Infrastructure.Behaviour;assembly=Mango.Infrastructure"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    mc:Ignorable="d" 
+    d:DesignHeight="1350" 
+    d:DesignWidth="751">
+
+    <UserControl.Resources>
+        <Style x:Key="ListBoxItemStyle1" TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <vsm:VisualStateManager.VisualStateGroups>
+                                <vsm:VisualStateGroup x:Name="CommonStates">
+                                    <vsm:VisualState x:Name="Normal"/>
+                                    <vsm:VisualState x:Name="MouseOver">
+
+                                    </vsm:VisualState>
+                                    <vsm:VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value=".55"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                </vsm:VisualStateGroup>
+                                <vsm:VisualStateGroup x:Name="SelectionStates">
+                                    <vsm:VisualState x:Name="Unselected"/>
+                                    <vsm:VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="fillColor2" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value=".75"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                </vsm:VisualStateGroup>
+                                <vsm:VisualStateGroup x:Name="FocusStates">
+                                    <vsm:VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                    <vsm:VisualState x:Name="Unfocused"/>
+                                </vsm:VisualStateGroup>
+                            </vsm:VisualStateManager.VisualStateGroups>
+                            <Rectangle x:Name="fillColor" IsHitTestVisible="False" Opacity="0" Fill="#FFBADDE9" RadiusX="1" RadiusY="1"/>
+                            <Rectangle x:Name="fillColor2" IsHitTestVisible="False" Opacity="0" Fill="#FFBADDE9" RadiusX="1" RadiusY="1"/>
+                            <ContentPresenter HorizontalAlignment="Left" Margin="{TemplateBinding Padding}" x:Name="contentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
+                            <Rectangle x:Name="FocusVisualElement" Visibility="Collapsed" Stroke="#FF6DBDD1" StrokeThickness="1" RadiusX="1" RadiusY="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ListBoxStyle1" TargetType="ListBox">
+            <Setter Property="Background" Value="#FFFFFFFF"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="TabNavigation" Value="Once"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#FF617584" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                            <ScrollViewer x:Name="ScrollViewer" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0" Padding="{TemplateBinding Padding}">
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle1}"/>
+        </Style>
+        
+        <local:InfinityConverter x:Key="InfinityConverter"/>
+        <local:StatusColorConverter x:Key="StatusTextToColorConverter" />
+        <local:VisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:ControlEnabilityConverter x:Key="EnabilityConverter" />
+        <local:DateConverter x:Key="DateConverter" />
+    </UserControl.Resources>
+
+    <!--<Grid x:Name="LayoutRoot" Margin="10,0,0,20" Background="#FDFDFD">-->
+
+    <Grid x:Name="LayoutRoot" Margin="10,0,5,20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="103*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock VerticalAlignment="Bottom" Height="auto" Visibility="{Binding IsAppraiseePresent, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="12,19,0,0" FontWeight="Bold" FontSize="20" FontStyle="Italic" Foreground="#FFF3A903">APPRAISEES UNDER ME</TextBlock>
+        <Border Visibility="{Binding IsAppraiseePresent, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,2,0,0" Grid.Row="1"  BorderThickness="0,5,0,0" BorderBrush="#FFF3A903">
+            <Border Margin="12,0,0,0" Grid.Row="1" BorderThickness="0,0,0,1" BorderBrush="Black">
+                <StackPanel Orientation="Vertical" Height="50"  >
+                    <ComboBox Margin="15,15,15,0" VerticalAlignment="Center" Background="#FFf" ItemsSource="{Binding StaffsView, Mode=TwoWay}" SelectedValuePath="Id" SelectedValue="{Binding Id}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" FontFamily="Arial" Foreground="#FF413E3E" FontSize="13" Width="60" Text="{Binding Id}"></TextBlock>
+                                    <TextBlock FontWeight="Bold" FontFamily="Arial" Foreground="#FF413E3E" FontSize="13" TextWrapping="Wrap" Width="300" Text="{Binding Name}"></TextBlock>
+                                    <TextBlock FontWeight="Bold" FontFamily="Arial" Foreground="#FF413E3E" FontSize="13" Width="120" Text="{Binding JobRoleLevelId}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#562684" Offset="0" />
+                            <GradientStop Color="LightGray" Offset="0.982" />
+                            <GradientStop Color="White" Offset="0.287" />
+                            <GradientStop Color="#562684" Offset="0.611" />
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+                    <!--#562684-->
+                    
+                    <!--<StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Gainsboro" Offset="0" />
+                            <GradientStop Color="LightGray" Offset="0.982" />
+                            <GradientStop Color="White" Offset="0.287" />
+                            <GradientStop Color="#FEF4F4F4" Offset="0.611" />
+                        </LinearGradientBrush>
+                    </StackPanel.Background>-->
+
+                </StackPanel>
+            </Border>
+        </Border>
+
+        <TextBlock VerticalAlignment="Bottom" Height="auto" Margin="12,5,0,0" Grid.Row="2"  FontWeight="Bold" FontSize="20" FontStyle="Italic" Foreground="#FFF3A903">APPRAISAL DETAIL</TextBlock>
+        <Border Margin="0,2,0,0"  Grid.Row="3"  BorderThickness="0,5,0,0" BorderBrush="#FFF3A903">
+            <Border Margin="12,0,0,0" BorderThickness="0,0,0,0" BorderBrush="Black">
+                <StackPanel Orientation="Vertical" Height="auto" >
+                    
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Margin="0,10,0,0" Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="13" Foreground="DarkGray">Appraisee Information</TextBlock>
+                        <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="0,2,0,0" BorderBrush="LightGray">
+                            <Grid HorizontalAlignment="Left" Margin="0,0,5,0" Width="auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Status:</TextBlock>
+                                <TextBlock Text="{Binding Appraisal.Status.Name, Mode=TwoWay}" FontSize="15" Grid.Row="0" Grid.Column="1" Foreground="{Binding Appraisal.Status.Name, Converter={StaticResource StatusTextToColorConverter}}" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                
+                                <TextBlock Grid.Row="1" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Staff ID:</TextBlock>
+                                <TextBlock Text="{Binding Staff.Id}" Grid.Row="1" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Staff Name:</TextBlock>
+                                <TextBlock Text="{Binding Staff.Name}" Grid.Row="2" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="3" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Supervisor:</TextBlock>
+                                <TextBlock Margin="0,0,5,0" Text="{Binding StaffSupervisor.Name}" Grid.Row="3" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="4" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Company:</TextBlock>
+                                <TextBlock Margin="0,0,15,0" Text="{Binding Staff.Company.Name}" TextWrapping="Wrap" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="5" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Department/Unit:</TextBlock>
+                                <TextBlock Margin="0,0,5,0" Text="{Binding Staff.Department.Name}" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="6" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Job Role:</TextBlock>
+                                <TextBlock Text="{Binding Staff.JobRole.Name}" Grid.Row="6" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="7" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Grade/Level:</TextBlock>
+                                <TextBlock Text="{Binding Staff.Level.Id}" Grid.Row="7" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Grid.Row="8" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Location:</TextBlock>
+                                <TextBlock Text="{Binding Staff.Location.Name}" Grid.Row="8" Grid.Column="1" Foreground="Navy" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                       </Border>
+
+                        <TextBlock Margin="0,7,0,0" Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="13" Foreground="DarkGray">Appraisal Information</TextBlock>
+                        <Border Grid.Column="0" Grid.Row="1" BorderThickness="0,2,0,0" BorderBrush="LightGray">
+                            <Grid HorizontalAlignment="Left" Width="360" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Appraisal Period:</TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Appraisal Status:</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Appraisal Type:</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">Start Date:</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="0" Width="120" FontWeight="Bold" VerticalAlignment="Center">End Date:</TextBlock>
+                                
+                                <TextBlock Text="{Binding Period.Name}" Grid.Row="2" Grid.Column="1" Foreground="Navy" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Period.Status.Name, Mode=TwoWay}" FontSize="15" Grid.Row="1" Grid.Column="1" Foreground="{Binding Period.Status.Name, Converter={StaticResource StatusTextToColorConverter}}" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Period.Type.Name}" Grid.Row="3" Grid.Column="1" Foreground="Navy" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Period.StartDate, Converter={StaticResource DateConverter}}" Grid.Row="5" Grid.Column="1" Foreground="Navy" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Period.EndDate, Converter={StaticResource DateConverter}}" Grid.Row="6" Grid.Column="1" Foreground="Navy" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Border>
+
+
+                        <TextBlock Margin="0,7,0,0" Grid.Column="1" Grid.Row="0" FontWeight="Bold" FontSize="13" Foreground="DarkGray">Grading Summary</TextBlock>
+                        <Border Grid.Column="1" Grid.Row="1" BorderThickness="0,2,0,0" BorderBrush="LightGray">
+                            <Grid HorizontalAlignment="Stretch"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Width="70" FontSize="13" Foreground="DimGray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Normal">GRADE</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">5</TextBlock>
+
+                                <TextBlock Grid.Row="1" Grid.Column="1" FontSize="13"  FontWeight="Bold" Foreground="DimGray" Width="120" TextAlignment="Center" VerticalAlignment="Center">RATING SCALE</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">0 - 50</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">51 - 74</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">75 - 84</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">85 - 94</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">> 94</TextBlock>
+
+                                <TextBlock Grid.Row="1" Grid.Column="3" Width="120" FontSize="13" Foreground="DimGray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Normal">PACE RATING</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">D</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">C</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">B</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">A+</TextBlock>
+
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Gainsboro" Offset="0" />
+                                        <GradientStop Color="LightGray" Offset="0.982" />
+                                        <GradientStop Color="White" Offset="0.287" />
+                                        <GradientStop Color="#FEF4F4F4" Offset="0.611" />
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+                            </Grid>
+                        </Border>
+                        
+                        
+                        
+                        <!--<Border Grid.Column="1" Grid.Row="1" BorderThickness="0,2,0,0" BorderBrush="LightGray">
+                            <Grid HorizontalAlignment="Stretch"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Width="70" FontSize="13" Foreground="DimGray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Normal">GRADE</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="0" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">5</TextBlock>
+
+                                <TextBlock Grid.Row="1" Grid.Column="1" FontSize="13"  FontWeight="Bold" Foreground="DimGray" Width="120" TextAlignment="Center" VerticalAlignment="Center">RATING SCALE</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">0 - 50</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">51 - 69</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">70 - 84</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">85 - 94</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="1" FontSize="12" Foreground="Gray" FontWeight="Bold" Width="90" TextAlignment="Center" VerticalAlignment="Center">> 95</TextBlock>
+
+                                <TextBlock Grid.Row="1" Grid.Column="3" Width="120" FontSize="13" Foreground="DimGray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Normal">PACE RATING</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">D</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">C</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center">B</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="3" Width="50" FontSize="12" Foreground="Gray" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">A+</TextBlock>
+
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Gainsboro" Offset="0" />
+                                        <GradientStop Color="LightGray" Offset="0.982" />
+                                        <GradientStop Color="White" Offset="0.287" />
+                                        <GradientStop Color="#FEF4F4F4" Offset="0.611" />
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+                            </Grid>
+                        </Border>-->
+
+                        <TextBlock Margin="0,7,0,0" Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="13" Foreground="DarkGray">Score Summary</TextBlock>
+                        <Border Grid.Column="1" Grid.Row="3" BorderThickness="0,2,0,0" BorderBrush="LightGray">
+                            <Grid HorizontalAlignment="Stretch" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="250"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--<TextBlock Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">Pace Score:</TextBlock>
+                                <TextBlock Margin="5,0,0,0" Grid.Row="2" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">Pace Final Grade:</TextBlock>-->
+
+                                <TextBlock Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">PSCE Score:</TextBlock>
+                                <TextBlock Margin="5,0,0,0" Grid.Row="2" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">PSCE Final Grade:</TextBlock>
+
+                                <TextBlock Visibility="{Binding DisplayPotentialAssessment, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="5,0,0,0" Grid.Row="3" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">Potential Assessment Score:</TextBlock>
+                                <TextBlock Margin="5,0,0,0" Grid.Row="4" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">Metrics Final Score:</TextBlock>
+                                <TextBlock Margin="5,0,0,0" Grid.Row="5" Grid.Column="0" Width="235" FontWeight="Bold" FontSize="14" FontStyle="Italic" VerticalAlignment="Center">Metrics Final Grade:</TextBlock>
+
+                                <TextBlock Margin="5,0,0,0" Text="{Binding TotalPaceScore}" Grid.Row="1" Grid.Column="1" FontSize="14" Foreground="Red" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding PaceRating}" Grid.Row="2" Grid.Column="1" FontSize="14" Foreground="Red" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding TotalStaffAssessmentScore}" Visibility="{Binding DisplayPotentialAssessment, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="3" Grid.Column="1" FontSize="14" Foreground="Red" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+
+                                <TextBlock Margin="5,0,0,0" Text="{Binding TotalActualMetricScore}" Grid.Row="4" Grid.Column="1" FontSize="14" Foreground="Red" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Metrices.Grade}" Grid.Row="5" Grid.Column="1" Foreground="Red" FontSize="14" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Gainsboro" Offset="0" />
+                                        <GradientStop Color="LightGray" Offset="0.982" />
+                                        <GradientStop Color="White" Offset="0.287" />
+                                        <GradientStop Color="#FEF4F4F4" Offset="0.611" />
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Border>
+
+
+        <TextBlock Margin="12,5,0,0" Grid.Row="4" VerticalAlignment="Bottom" Height="auto" FontWeight="Bold" FontSize="20" FontStyle="Italic" Foreground="#FFF3A903">VALUE ASSESSMENT</TextBlock>
+        <Border Margin="0,2,0,0"  Grid.Row="5"  BorderThickness="0,5,0,0" BorderBrush="#FFF3A903">
+            <Border Margin="12,0,0,0" BorderThickness="0,0,0,1" BorderBrush="Black" >
+            <StackPanel Orientation="Vertical" Height="auto" >
+
+                    <sdk:DataGrid 
+                     
+                    ColumnHeaderHeight="30"
+                    HeadersVisibility="Column"
+                    AutoGenerateColumns="False" 
+                    ItemsSource="{Binding Paces, Mode=TwoWay}"
+		            CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                    
+                    BorderThickness="0,0,0,0" 
+                    Background="{x:Null}" 
+		            BorderBrush="{x:Null}" 
+                    GridLinesVisibility="None" 
+                    AreRowDetailsFrozen="True" 
+                    >
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="PSCE Item" Width="120">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="PSCE Description" Width="305">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="0,2,0,2" TextWrapping="Wrap" FontSize="10.5" Text="{Binding Description}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn  Header="Justification" Width="180">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Margin="0,2,0,2" TextWrapping="Wrap" Width="170" MinHeight="80" Text="{Binding Justification, Mode=TwoWay}" IsEnabled="{Binding IsSupervisor, Converter={StaticResource EnabilityConverter}}" >
+                                        </TextBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="60">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        
+                                        <toolkit:NumericUpDown control:NumericUpDownValueChanged.Command="{Binding OnNumericUpDownChangedCommand}" Width="auto" HorizontalContentAlignment="Left" Value="{Binding Score, Mode=TwoWay}" IsEnabled="{Binding IsSupervisor, Converter={StaticResource EnabilityConverter}}" DecimalPlaces="0" Maximum="105" Increment="5" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                          
+                            <sdk:DataGridTemplateColumn Header="Grade" Width="60">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="NoWrap" HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Rating, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+
+                    <TextBlock Text="{Binding TotalPaceScore}" TextAlignment="Center" Margin="0,0,66,0" HorizontalAlignment="Right" Width="60" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+            </StackPanel>
+        </Border>
+        </Border>
+
+        <TextBlock Visibility="{Binding DisplayPotentialAssessment, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="12,5,0,0" Grid.Row="6" VerticalAlignment="Bottom" Height="auto" FontWeight="Bold" FontSize="20" FontStyle="Italic" Foreground="#FFF3A903" >POTENTIAL ASSESSMENT</TextBlock>
+        <Border Visibility="{Binding DisplayPotentialAssessment, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,2,0,0"  Grid.Row="7"  BorderThickness="0,5,0,0" BorderBrush="#FFF3A903" >
+            <StackPanel>
+            <Border Margin="12,0,0,0" BorderThickness="0,0,0,1" BorderBrush="Black" >
+                <StackPanel Orientation="Vertical" Height="auto" >
+                    <sdk:DataGrid 
+                    ColumnHeaderHeight="30"
+                    HeadersVisibility="Column"
+                    AutoGenerateColumns="False" 
+                    ItemsSource="{Binding StaffAssessments, Mode=TwoWay}"
+		            CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                    BorderThickness="0,0,0,0" 
+                    Background="{x:Null}" 
+		            BorderBrush="{x:Null}" 
+                    GridLinesVisibility="None" 
+                    AreRowDetailsFrozen="True" 
+                    >
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="Skill" Width="230">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                            <TextBlock FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Period.Assessment.Skill}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Potential Indicator" Width="385">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                            <TextBlock Margin="0,2,0,2" TextWrapping="Wrap" FontSize="10.5" Text="{Binding Period.Assessment.Indicator}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <!--<sdk:DataGridTemplateColumn  Header="Justification" Width="180">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Margin="0,2,0,2" TextWrapping="Wrap" Width="170" MinHeight="80" Text="{Binding Justification, Mode=TwoWay}" IsEnabled="{Binding IsSupervisor, Converter={StaticResource EnabilityConverter}}" >
+                                        </TextBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>-->
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="110">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                            <toolkit:NumericUpDown control:NumericUpDownValueChanged.Command="{Binding OnNumericUpDownChangedCommand}" Width="auto" HorizontalContentAlignment="Left" Value="{Binding Score, Mode=TwoWay}" IsEnabled="{Binding Enable, Converter={StaticResource EnabilityConverter}}" DecimalPlaces="0" Maximum="5" Increment="1" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <!--<sdk:DataGridTemplateColumn Header="Grade" Width="60">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="NoWrap" TextAlignment="Center" Text="{Binding Rating, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>-->
+                            
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+
+                    <TextBlock Text="{Binding TotalStaffAssessmentScore}" Margin="0,0,55,0" TextAlignment="Center" HorizontalAlignment="Right" Width="60" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                </StackPanel>
+            </Border>
+            </StackPanel>
+        </Border>
+
+
+
+
+        <Border Margin="0,5,0,0"  Grid.Row="8"  BorderThickness="0,0,0,5" BorderBrush="#FFF3A903">
+            <TextBlock Margin="12,0" VerticalAlignment="Bottom" Height="auto" FontWeight="Bold" FontSize="20" FontStyle="Italic" Foreground="#FFF3A903" >METRICS</TextBlock>
+        </Border>
+
+        <Grid Grid.Row="9" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+
+
+            <!--AlternatingRowBackground="White"-->
+
+            <TextBlock Text="{Binding Metrices.CustomerTarget}" Grid.Row="0" Margin="12,2,0,0" FontWeight="Bold" ></TextBlock>
+            <Border Margin="12,0,0,0" Grid.Row="1" BorderThickness="0,5,0,0.5" BorderBrush="Black" >
+                <StackPanel Orientation="Vertical" Height="auto">
+                    <sdk:DataGrid 
+                        ColumnHeaderHeight="30"
+                        HeadersVisibility="Column"
+                        AutoGenerateColumns="False" 
+                        ItemsSource="{Binding Metrices.Customers, Mode=TwoWay}"
+		                CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                        
+                        Background="White"
+                        BorderThickness="0,0,0,0" 
+                        
+		                BorderBrush="{x:Null}" 
+                        GridLinesVisibility="None" 
+                        AreRowDetailsFrozen="True" 
+                        HorizontalGridLinesBrush="DarkGray">
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="Kpi" Width="230">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Kpi}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Kpi Description" Width="255">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Measure}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Kpi Weight" Width="80">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Target}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="50">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Score}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Weighted Score" Width="110" >
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="{Binding Rating}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Metrices.CustomerSumTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                        <TextBlock Text="{Binding Metrices.CustomerActualScoreTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="{Binding Metrices.FinancialTarget}" Grid.Row="2" Margin="12,10,0,0" FontWeight="Bold" ></TextBlock>
+            <Border Margin="12,0,0,0" Grid.Row="3" BorderThickness="0,2,0,0.5" BorderBrush="Black" >
+                <StackPanel Orientation="Vertical" Height="auto">
+                <sdk:DataGrid 
+                    HeadersVisibility="None"  
+                    AutoGenerateColumns="False" 
+                    ItemsSource="{Binding Metrices.Financials, Mode=TwoWay}"
+		            CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                    
+                    BorderThickness="0,0,0,0" 
+                    Background="{x:Null}" 
+		            BorderBrush="{x:Null}" 
+                    GridLinesVisibility="None" 
+                    AreRowDetailsFrozen="True">
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="Kpi" Width="230">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Kpi}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Measure" Width="255">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Measure}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Target" Width="80">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Target}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="50">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Score}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Grade" Width="110">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="{Binding Rating}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+
+                    </sdk:DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Metrices.FinancialSumTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                        <TextBlock Text="{Binding Metrices.FinancialActualScoreTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        
+            <TextBlock Text="{Binding Metrices.PeopleTarget}" Grid.Row="4" Margin="12,10,0,0" FontWeight="Bold" ></TextBlock>
+            <Border Margin="12,0,0,0" Grid.Row="5" BorderThickness="0,2,0,1" BorderBrush="Black" >
+                <StackPanel Orientation="Vertical" Height="auto">
+                    <sdk:DataGrid 
+                    HeadersVisibility="None"  
+                    AutoGenerateColumns="False" 
+                    ItemsSource="{Binding Metrices.Peoples, Mode=TwoWay}"
+		            CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                    
+                    BorderThickness="0,0,0,0" 
+                    Background="{x:Null}" 
+		            BorderBrush="{x:Null}" 
+                    GridLinesVisibility="None" 
+                    AreRowDetailsFrozen="True">
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="Kpi" Width="230">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Kpi}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Measure" Width="255">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Measure}">
+                                           <ToolTipService.ToolTip>
+                                               <StackPanel>
+                                                    <sdk:DataGrid 
+                                                        Margin="0,6,0,6"                        
+                                                        HeadersVisibility="Column"
+                                                        AutoGenerateColumns="False" 
+                                                        ItemsSource="{Binding MetricRatings, Mode=TwoWay}"
+		                                                CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                                                        BorderThickness="0,0,0,0" 
+                                                        Background="White" 
+		                                                BorderBrush="White"
+                                                        GridLinesVisibility="None" 
+                                                        AreRowDetailsFrozen="True" HorizontalAlignment="Center"
+                                                        
+                                                        ColumnHeaderStyle="{StaticResource CustomHeaderStyle}"
+                                                        RowStyle="{StaticResource CustomGridRowStyle1}"
+                                                        Style="{StaticResource CustomDataGridStyle}"
+                                                        
+                                                        >
+
+                                                        <sdk:DataGrid.Columns>
+                                                                <sdk:DataGridTextColumn Header="From" Width="40" Binding="{Binding From, Converter={StaticResource InfinityConverter}}" />
+                                                                <sdk:DataGridTextColumn Header="To" Width="75" Binding="{Binding To, Converter={StaticResource InfinityConverter}}" />
+                                                                <sdk:DataGridTextColumn Header="Rating" Width="50" Binding="{Binding Rating}" />
+                                                             
+                                                            </sdk:DataGrid.Columns>
+                                                    </sdk:DataGrid>
+                                                   
+                                               </StackPanel>
+                                           </ToolTipService.ToolTip>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Target" Width="80">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Target}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="50">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Score, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Grade" Width="110">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="{Binding Rating, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+
+                    </sdk:DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Metrices.PeopleSumTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                        <TextBlock Text="{Binding Metrices.PeopleActualScoreTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+
+            <TextBlock Text="{Binding Metrices.ProcessTarget}" Grid.Row="7" Margin="12,10,0,0" FontWeight="Bold"  ></TextBlock>
+            <Border Margin="12,0,0,0" Grid.Row="8" BorderThickness="0,2,0,1" BorderBrush="Black" >
+                <StackPanel Orientation="Vertical" Height="auto">
+                    <sdk:DataGrid 
+                        HeadersVisibility="None"  
+                        AutoGenerateColumns="False" 
+                        ItemsSource="{Binding Metrices.Processes, Mode=TwoWay}"
+		                CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                        
+                        BorderThickness="0,0,0,0" 
+                        Background="{x:Null}" 
+		                BorderBrush="{x:Null}" 
+                        GridLinesVisibility="None" 
+                        AreRowDetailsFrozen="True">
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="Kpi" Width="230">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Kpi}" >
+                                             <ToolTipService.ToolTip>
+                                               <StackPanel>
+                                                
+                                                    <sdk:DataGrid 
+                                                        Margin="0,6,0,6"                        
+                                                        HeadersVisibility="Column"
+                                                        AutoGenerateColumns="False" 
+                                                        ItemsSource="{Binding MetricRatings, Mode=TwoWay}"
+		                                                CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                                                        BorderThickness="0,0,0,0" 
+                                                        Background="White" 
+		                                                BorderBrush="White"
+                                                        GridLinesVisibility="None" 
+                                                        AreRowDetailsFrozen="True" 
+                                                        HorizontalAlignment="Center"
+                                                        ColumnHeaderStyle="{StaticResource CustomHeaderStyle}"
+                                                        RowStyle="{StaticResource CustomGridRowStyle1}"
+                                                        Style="{StaticResource CustomDataGridStyle}" >
+
+                                                        <sdk:DataGrid.Columns>
+                                                                <sdk:DataGridTextColumn Header="From" Width="40" Binding="{Binding From, Converter={StaticResource InfinityConverter}}" />
+                                                                <sdk:DataGridTextColumn Header="To" Width="75" Binding="{Binding To, Converter={StaticResource InfinityConverter}}" />
+                                                                <sdk:DataGridTextColumn Header="Rating" Width="50" Binding="{Binding Rating.Id}" />
+                                                             
+                                                            </sdk:DataGrid.Columns>
+                                                    </sdk:DataGrid>
+                                                   
+                                               </StackPanel>
+                                           </ToolTipService.ToolTip>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Measure" Width="255">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Measure}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Target" Width="80">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Target}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="55">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <toolkit:NumericUpDown control:NumericUpDownValueChanged.Command="{Binding OnNumericUpDownChangedCommand}" Width="50" HorizontalContentAlignment="Left" Value="{Binding Score, Mode=TwoWay}" IsEnabled="{Binding IsSupervisor, Converter={StaticResource EnabilityConverter}}" DecimalPlaces="0" Maximum="999" Increment="1" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                    
+                            <sdk:DataGridTemplateColumn Header="Grade" Width="110">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="{Binding Rating}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Metrices.ProcessSumTotal, Mode=TwoWay}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                        <TextBlock Text="{Binding Metrices.ProcessActualScoreTotal, Mode=TwoWay}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="{Binding Metrices.RiskTarget}" Grid.Row="9" Margin="12,10,0,0" FontWeight="Bold" > RISK (10%)</TextBlock>
+            <Border Margin="12,0,0,0" Grid.Row="10" BorderThickness="0,2,0,1" BorderBrush="Black"  >
+                <StackPanel Orientation="Vertical" Height="auto">
+                    <sdk:DataGrid 
+                    HeadersVisibility="None"  
+                    AutoGenerateColumns="False" 
+                    ItemsSource="{Binding Metrices.Risks, Mode=TwoWay}"
+                    CellStyle="{StaticResource NoSelectionDataGridCellStyle}"
+                       
+		            VerticalAlignment="Top"
+                    BorderThickness="0,0,0,0" 
+                    Background="{x:Null}" 
+		            BorderBrush="{x:Null}" 
+                    GridLinesVisibility="None" 
+                    AreRowDetailsFrozen="True">
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn  Header="Kpi" Width="230">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Kpi}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Measure" Width="255">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Measure}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Target" Width="80">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Target}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Score" Width="50">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Score}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTemplateColumn Header="Grade" Width="110">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="{Binding Rating}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+                        
+                    </sdk:DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Metrices.RiskSumTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                        <TextBlock Text="{Binding Metrices.RiskActualScoreTotal}" Margin="0,0,17,0" Width="70" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold" FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <TextBlock VerticalAlignment="Bottom" Height="auto" Grid.Row="10" Margin="12,10,0,0" FontWeight="Bold" FontSize="20" Foreground="#FFF3A903" FontStyle="Italic" >COMMENT</TextBlock>
+        <Border Margin="0,2,0,0" Grid.Row="11" BorderThickness="0,5,0,0" BorderBrush="#FFF3A903">
+            <Border Margin="12,1,0,0" Grid.Row="5" BorderThickness="0,0,0,1" BorderBrush="Black">
+                <StackPanel Orientation="Vertical" Height="auto" >
+            <Grid HorizontalAlignment="Left" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Strengths:</TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Weakness:</TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Training Needs:</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Supervisor Comment:</TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Appraisee Comment:</TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">HOD's Comment:</TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Recommendations:</TextBlock>
+
+
+                        <TextBox Text="{Binding Comment.Strenght, Mode=TwoWay}" IsEnabled="{Binding IsStrenghtAndWeakness, Converter={StaticResource EnabilityConverter}}" Grid.Row="0" Margin="0,5" Grid.Column="1" Width="500" MinHeight="50" TextWrapping="Wrap"></TextBox>
+                        <TextBox Text="{Binding Comment.Weakness, Mode=TwoWay}" IsEnabled="{Binding IsStrenghtAndWeakness, Converter={StaticResource EnabilityConverter}}" Grid.Row="1" Margin="0,5" Grid.Column="1" Width="500" MinHeight="50" TextWrapping="Wrap"></TextBox>
+                        <TextBox Text="{Binding Comment.TrainingNeed, Mode=TwoWay}" IsEnabled="{Binding IsTrainingNeeds, Converter={StaticResource EnabilityConverter}}" Grid.Row="2" Margin="0,5" Grid.Column="1" Width="500" MinHeight="50" TextWrapping="Wrap"></TextBox>
+                        <TextBox Text="{Binding Comment.SupervisorComment, Mode=TwoWay}" IsEnabled="{Binding IsSupervisorComment, Converter={StaticResource EnabilityConverter}}" Grid.Row="3" Margin="0,5" Grid.Column="1" Width="500" MinHeight="50" TextWrapping="Wrap"></TextBox>
+                        <TextBox Text="{Binding Comment.AppraiseeComment, Mode=TwoWay}" IsEnabled="{Binding IsAppraiseeComment, Converter={StaticResource EnabilityConverter}}" Grid.Row="4" Margin="0,5" Grid.Column="1" Width="500" MinHeight="50" TextWrapping="Wrap"></TextBox>
+                        <TextBox Text="{Binding Comment.HodComment, Mode=TwoWay}" IsEnabled="{Binding IsHodComment, Converter={StaticResource EnabilityConverter}}" Grid.Row="5" Margin="0,5" Grid.Column="1" Width="500" MinHeight="50" TextWrapping="Wrap"></TextBox>
+
+                <StackPanel Margin="0,5,0,4" Orientation="Vertical" Grid.Row="6" Grid.Column="1">
+                            <ComboBox ItemsSource="{Binding RecommendationsView, Mode=TwoWay}" IsEnabled="{Binding IsRecommendation, Converter={StaticResource EnabilityConverter}}" SelectedValuePath="Id" SelectedValue="{Binding Comment.RecommendationId}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <TextBlock Grid.Row="7" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center">Option:</TextBlock>
+
+                <StackPanel Margin="0,5,0,4" Orientation="Vertical" Grid.Row="7" Grid.Column="1">
+                            <ComboBox Margin="0,0,0,10" ItemsSource="{Binding OptionsView, Mode=TwoWay}" IsEnabled="{Binding IsOption, Converter={StaticResource EnabilityConverter}}" SelectedValuePath="Id" SelectedValue="{Binding Id}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                        
+                    </Grid>
+        </StackPanel>
+            </Border>
+        </Border>
+
+        <toolkit:BusyIndicator Grid.Row="12" Margin="173,5,70,0" IsBusy="{Binding IsProcessing, Converter={StaticResource EnabilityConverter}}" VerticalContentAlignment="Center" >
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="0,5,0,0" commands:Click.Command="{Binding ButtonClickCommand}" IsEnabled="{Binding IsOption, Converter={StaticResource EnabilityConverter}}" Content="Submit"  Height="34" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Cursor="Hand" FontSize="12" />
+                <Button Margin="3,5,0,0" commands:Click.Command="{Binding SaveCommand}" Visibility="{Binding SaveToContinueLater, Converter={StaticResource BooleanToVisibilityConverter}}" Content="Save, To Continue Later"  Height="34" HorizontalAlignment="Left" VerticalAlignment="Top"  Cursor="Hand" FontSize="12" />
+
+                <!--IsEnabled="{Binding IsStrenghtAndWeakness, Converter={StaticResource EnabilityConverter}}"-->
+                <!--<Button Margin="3,5,0,0" commands:Click.Command="{Binding SaveCommand}" IsEnabled="{Binding IsOption, Converter={StaticResource EnabilityConverter}}" Visibility="{Binding LockPaceAndMetrics, Converter={StaticResource BooleanToVisibilityConverter}}" Content="Save To Continue Later"  Height="34" HorizontalAlignment="Left" VerticalAlignment="Top"  Cursor="Hand" FontSize="12" />-->
+            </StackPanel>
+        </toolkit:BusyIndicator>
+
+
+        <!--<toolkit:BusyIndicator Grid.Row="12" Margin="280,5,0,0" IsBusy="{Binding IsBusy, Converter={StaticResource EnabilityConverter}}" HorizontalAlignment="Left" VerticalContentAlignment="Center" >
+            <Button Margin="173,5,0,0" Grid.Row="12" commands:Click.Command="{Binding ButtonClickCommand}" IsEnabled="{Binding IsOption, Converter={StaticResource EnabilityConverter}}" Content="Submit"  Height="34" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Cursor="Hand" FontSize="12" />
+
+        </toolkit:BusyIndicator>-->
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+    <!--ColumnHeaderStyle="{StaticResource CustomHeaderStyle}"-->
+
+    <!--<sdk:DataGrid ItemsSource="{Binding Metrics, Mode=TwoWay}" AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Left" Margin="12,177,0,0" VerticalAlignment="Top" Name="grid2" Width="726">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="Metric 1" Binding="{Binding Metric1}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" />
+                    <sdk:DataGridTemplateColumn Header="Metric and Weight" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+
+                                        <ListBox Margin="15" SelectionMode="Single" Height="auto" Background="Transparent" Style="{StaticResource ListBoxStyle1}" ItemsSource="{Binding Path=Metrics.Staffs}" HorizontalAlignment="Left" Name="listBox1" VerticalAlignment="Top" Width="auto" BorderThickness="0">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding Id}"></TextBlock>
+                                                        <TextBlock Foreground="Blue"  FontWeight="Bold" Text="{Binding Name}"></TextBlock>
+                                                        <TextBlock Foreground="Yellow" FontWeight="Bold" Text="{Binding Email}"></TextBlock>
+                                                        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding TeamCode}"></TextBlock>
+                                                   
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+
+                                    </StackPanel>
+                            </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                   </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>-->
+
+    <!--<StackPanel Grid.Row="7" Orientation="Vertical" Height="66" Margin="0,0,0,41"></StackPanel>-->
+
+    <!--<ListBox  Margin="12,12,12,0" Grid.Row="11"  SelectionMode="Single" Height="auto" Background="Transparent" Style="{StaticResource ListBoxStyle1}" ItemsSource="{Binding Kpis}" HorizontalAlignment="Left" Name="listBox1" VerticalAlignment="Top" Width="auto" BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding KpiID}"></TextBlock>
+                        <TextBlock Foreground="Black" FontWeight="Bold" Text="{Binding StaffNo}"></TextBlock>
+                        <TextBlock Foreground="Yellow" FontWeight="Bold" Text="{Binding PerformanceIndicator}"></TextBlock>
+                        <TextBlock Foreground="Pink" FontWeight="Bold" Text="{Binding Measurement}"></TextBlock>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+
+
+
+
+
+
+    
+    
+
+</UserControl>

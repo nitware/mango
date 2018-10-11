@@ -1,0 +1,3130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49464/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49464/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49464/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Mango.Model" />
+      <xsd:import schemaLocation="http://localhost:49464/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Mango.Model.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_GetAllNpsByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNpsByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllNpsByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNpsByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyNps_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyNps" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyNps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyNpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricesByPeriodAndPerspective_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricesByPeriodAndPerspective" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricesByPeriodAndPerspective_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricesByPeriodAndPerspectiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricAndAssociatedRatings_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricAndAssociatedRatings" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricAndAssociatedRatings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricAndAssociatedRatingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetricRatings_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricRatings" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetricRatings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricRatingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricRatingsByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricRatingsByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricRatingsByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricRatingsByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricRatings_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricRatings" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricRatings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricRatingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetricRatings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetricRatings" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetricRatings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetricRatingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetricRatingsByMetrics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricRatingsByMetrics" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetricRatingsByMetrics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricRatingsByMetricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricRatingByMetrics_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricRatingByMetrics" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricRatingByMetrics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricRatingByMetricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRatings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRatings" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRatings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRatingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRatingType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRatingType" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRatingType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRatingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRatingTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRatingTypes" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRatingTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRatingTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRatingType_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRatingType" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRatingType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRatingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRatingType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRatingType" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRatingType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRatingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetricsPerspective_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricsPerspective" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetricsPerspective_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricsPerspectiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricsPerspectives_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricsPerspectives" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricsPerspectives_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricsPerspectivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricsPerspective_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricsPerspective" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricsPerspective_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricsPerspectiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetricsPerspective_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetricsPerspective" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetricsPerspective_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetricsPerspectiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemovePeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemovePeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetNewCurrentPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNewCurrentPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetNewCurrentPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNewCurrentPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddJobRoleSupervisors_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobRoleSupervisors" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddJobRoleSupervisors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobRoleSupervisorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobRolesUnderSupervisorByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobRolesUnderSupervisorByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobRolesUnderSupervisorByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobRolesUnderSupervisorByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllSupervisorJobRolesByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupervisorJobRolesByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllSupervisorJobRolesByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupervisorJobRolesByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleSupervisor_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleSupervisor" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleSupervisor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleSupervisorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyJobRoleSupervisors_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyJobRoleSupervisors" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyJobRoleSupervisors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyJobRoleSupervisorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPeriodTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPeriodTypes" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPeriodTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPeriodTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPeriodType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPeriodType" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPeriodType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPeriodTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemovePeriodType_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePeriodType" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemovePeriodType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePeriodTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyPeriodType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyPeriodType" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyPeriodType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyPeriodTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyDepartmentByCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyDepartmentByCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyDepartmentByCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyDepartmentByCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffLearning_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffLearning" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffLearning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffLearningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffLearning_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffLearning" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffLearning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffLearningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffLearning_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffLearning" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffLearning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffLearningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffLearning_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffLearning" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffLearning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffLearningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocations" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffLocations" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLoginDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLoginDetails" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLoginDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLoginDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ResetLoginDetailPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetLoginDetailPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService_ResetLoginDetailPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetLoginDetailPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyLoginDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyLoginDetail" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyLoginDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyLoginDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffAssessments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffAssessments" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffAssessments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffAssessmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsStaffLevelExistInAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsStaffLevelExistInAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsStaffLevelExistInAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsStaffLevelExistInAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReadInpsExcel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadInpsExcel" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReadInpsExcel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadInpsExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SaveInps_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInps" />
+  </wsdl:message>
+  <wsdl:message name="IService_SaveInps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInpsByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInpsByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInps_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInps" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInps" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInps_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInps" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyInps_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyInps" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyInps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyInpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInpsByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInpsByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInpsByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInpsByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInpsByPeriodAndType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInpsByPeriodAndType" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInpsByPeriodAndType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInpsByPeriodAndTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInpsRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInpsRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInpsRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInpsRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInpsRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInpsRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInpsRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInpsRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyInpsRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyInpsRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyInpsRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyInpsRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInpsRatingByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsRatingByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInpsRatingByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsRatingByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInpsRatingByPeriodAndType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInpsRatingByPeriodAndType" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInpsRatingByPeriodAndType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInpsRatingByPeriodAndTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInpsType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsType" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllInpsType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInpsTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInpsType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInpsType" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInpsType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInpsTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyInpsType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyInpsType" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyInpsType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyInpsTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInpsType_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsType" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveInpsType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInpsTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateUserAccessKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserAccessKey" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateUserAccessKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserAccessKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadPaceArea_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPaceArea" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadPaceArea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPaceAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadCurrentAppraisalDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadCurrentAppraisalDetail" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadCurrentAppraisalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadCurrentAppraisalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadMetrices_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadMetrices" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadMetrices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadMetricesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAppraisalOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppraisalOption" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAppraisalOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppraisalOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadComment" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadRecommendation_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadRecommendation" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadRecommendation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadRecommendationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadSupervisorsAppraisee_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSupervisorsAppraisee" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadSupervisorsAppraisee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSupervisorsAppraiseeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffByLoginName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffByLoginName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffByLoginName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffByLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadPaceByStaffAndPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPaceByStaffAndPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadPaceByStaffAndPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPaceByStaffAndPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AppraiseStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:AppraiseStaff" />
+  </wsdl:message>
+  <wsdl:message name="IService_AppraiseStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AppraiseStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadStaffAppraisal_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadStaffAppraisal" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadStaffAppraisal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadStaffAppraisalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCurrentPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCurrentPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAppraiseeSupervisor_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppraiseeSupervisor" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAppraiseeSupervisor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppraiseeSupervisorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAllGradeScale_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllGradeScale" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAllGradeScale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllGradeScaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppraiseeHod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppraiseeHod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppraiseeHod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppraiseeHodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAllPaceRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllPaceRating" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadAllPaceRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllPaceRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffType" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadHodAppraisees_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadHodAppraisees" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoadHodAppraisees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadHodAppraiseesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyAppraisal_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyAppraisal" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyAppraisal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyAppraisalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AcceptOrRejectAppraisal_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptOrRejectAppraisal" />
+  </wsdl:message>
+  <wsdl:message name="IService_AcceptOrRejectAppraisal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptOrRejectAppraisalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateNewPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateNewPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPeriods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPeriods" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPeriods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPeriodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLearningByStaffAndPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearningByStaffAndPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLearningByStaffAndPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearningByStaffAndPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppraisalReportByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppraisalReportByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppraisalReportByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppraisalReportByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffs" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffs" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffByUserName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaff" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaff" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateStaff" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidateStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaff" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AssignRightToRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignRightToRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_AssignRightToRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignRightToRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRights" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRight" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRight" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRight" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllJobRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllJobRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLevel" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLevels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLevels" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLevels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLevelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveLevel" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyLevel" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffLevel" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffLevels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffLevels" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffLevels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffLevelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetByStaffAndPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByStaffAndPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetByStaffAndPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByStaffAndPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffLevel" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffLevel" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffCdjr_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffCdjr" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddStaffCdjr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStaffCdjrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffCdjrs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffCdjrs" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStaffCdjrs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffCdjrsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffCdjrByStaffAndPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffCdjrByStaffAndPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStaffCdjrByStaffAndPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffCdjrByStaffAndPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffCdjr_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffCdjr" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveStaffCdjr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStaffCdjrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffCdjr_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffCdjr" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyStaffCdjr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyStaffCdjrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCompanyDepartmentJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompanyDepartmentJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCompanyDepartmentJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompanyDepartmentJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllCompanyDepartmentJobRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompanyDepartmentJobRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllCompanyDepartmentJobRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompanyDepartmentJobRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveCompanyDepartmentJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCompanyDepartmentJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveCompanyDepartmentJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCompanyDepartmentJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyCompanyDepartmentJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyCompanyDepartmentJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyCompanyDepartmentJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyCompanyDepartmentJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddJobRoleHods_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobRoleHods" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddJobRoleHods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobRoleHodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllJobRoleHods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobRoleHods" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllJobRoleHods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobRoleHodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobRolesUnderHodByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobRolesUnderHodByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobRolesUnderHodByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobRolesUnderHodByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleHod_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleHod" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleHod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleHodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyJobRoleHods_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyJobRoleHods" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyJobRoleHods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyJobRoleHodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllHodJobRolesByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHodJobRolesByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllHodJobRolesByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHodJobRolesByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleHodByHodCompanyDepartmentJobRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleHodByHodCompanyDepartmentJobRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveJobRoleHodByHodCompanyDepartmentJobRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveJobRoleHodByHodCompanyDepartmentJobRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetric_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetric" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetric_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetricResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetrics_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetrics" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetrics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetrices_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetrices" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddMetrices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricesByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricesByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMetricesByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMetricesByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetricesByCompanyDepartmetJobRoleAndPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricesByCompanyDepartmetJobRoleAndPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetricesByCompanyDepartmetJobRoleAndPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricesByCompanyDepartmetJobRoleAndPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetricesByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricesByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetricesByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricesByPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetrics_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetrics" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetrics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetrics_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetrics" />
+  </wsdl:message>
+  <wsdl:message name="IService_ModifyMetrics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMetricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricsByCompanyDepartmentJobRoleAndPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricsByCompanyDepartmentJobRoleAndPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveMetricsByCompanyDepartmentJobRoleAndPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMetricsByCompanyDepartmentJobRoleAndPeriodResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="GetAllNpsByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllNpsByPeriod" message="tns:IService_GetAllNpsByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllNpsByPeriodResponse" message="tns:IService_GetAllNpsByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyNps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyNps" message="tns:IService_ModifyNps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyNpsResponse" message="tns:IService_ModifyNps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricesByPeriodAndPerspective">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMetricesByPeriodAndPerspective" message="tns:IService_GetAllMetricesByPeriodAndPerspective_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllMetricesByPeriodAndPerspectiveResponse" message="tns:IService_GetAllMetricesByPeriodAndPerspective_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricAndAssociatedRatings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveMetricAndAssociatedRatings" message="tns:IService_RemoveMetricAndAssociatedRatings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveMetricAndAssociatedRatingsResponse" message="tns:IService_RemoveMetricAndAssociatedRatings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMetricRatings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddMetricRatings" message="tns:IService_AddMetricRatings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddMetricRatingsResponse" message="tns:IService_AddMetricRatings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricRatingsByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMetricRatingsByPeriod" message="tns:IService_GetAllMetricRatingsByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllMetricRatingsByPeriodResponse" message="tns:IService_GetAllMetricRatingsByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricRatings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveMetricRatings" message="tns:IService_RemoveMetricRatings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveMetricRatingsResponse" message="tns:IService_RemoveMetricRatings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetricRatings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyMetricRatings" message="tns:IService_ModifyMetricRatings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyMetricRatingsResponse" message="tns:IService_ModifyMetricRatings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricRatingsByMetrics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMetricRatingsByMetrics" message="tns:IService_GetMetricRatingsByMetrics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMetricRatingsByMetricsResponse" message="tns:IService_GetMetricRatingsByMetrics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricRatingByMetrics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveMetricRatingByMetrics" message="tns:IService_RemoveMetricRatingByMetrics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveMetricRatingByMetricsResponse" message="tns:IService_RemoveMetricRatingByMetrics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddRating" message="tns:IService_AddRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddRatingResponse" message="tns:IService_AddRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRatings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllRatings" message="tns:IService_GetAllRatings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllRatingsResponse" message="tns:IService_GetAllRatings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveRating" message="tns:IService_RemoveRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveRatingResponse" message="tns:IService_RemoveRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyRating" message="tns:IService_ModifyRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyRatingResponse" message="tns:IService_ModifyRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRatingType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddRatingType" message="tns:IService_AddRatingType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddRatingTypeResponse" message="tns:IService_AddRatingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRatingTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllRatingTypes" message="tns:IService_GetAllRatingTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllRatingTypesResponse" message="tns:IService_GetAllRatingTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRatingType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveRatingType" message="tns:IService_RemoveRatingType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveRatingTypeResponse" message="tns:IService_RemoveRatingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRatingType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyRatingType" message="tns:IService_ModifyRatingType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyRatingTypeResponse" message="tns:IService_ModifyRatingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMetricsPerspective">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddMetricsPerspective" message="tns:IService_AddMetricsPerspective_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddMetricsPerspectiveResponse" message="tns:IService_AddMetricsPerspective_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricsPerspectives">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMetricsPerspectives" message="tns:IService_GetAllMetricsPerspectives_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllMetricsPerspectivesResponse" message="tns:IService_GetAllMetricsPerspectives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricsPerspective">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveMetricsPerspective" message="tns:IService_RemoveMetricsPerspective_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveMetricsPerspectiveResponse" message="tns:IService_RemoveMetricsPerspective_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetricsPerspective">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyMetricsPerspective" message="tns:IService_ModifyMetricsPerspective_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyMetricsPerspectiveResponse" message="tns:IService_ModifyMetricsPerspective_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyPeriod" message="tns:IService_ModifyPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyPeriodResponse" message="tns:IService_ModifyPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemovePeriod" message="tns:IService_RemovePeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemovePeriodResponse" message="tns:IService_RemovePeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNewCurrentPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SetNewCurrentPeriod" message="tns:IService_SetNewCurrentPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SetNewCurrentPeriodResponse" message="tns:IService_SetNewCurrentPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStatus" message="tns:IService_GetAllStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStatusResponse" message="tns:IService_GetAllStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddJobRoleSupervisors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddJobRoleSupervisors" message="tns:IService_AddJobRoleSupervisors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddJobRoleSupervisorsResponse" message="tns:IService_AddJobRoleSupervisors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobRolesUnderSupervisorByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetJobRolesUnderSupervisorByPeriod" message="tns:IService_GetJobRolesUnderSupervisorByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetJobRolesUnderSupervisorByPeriodResponse" message="tns:IService_GetJobRolesUnderSupervisorByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupervisorJobRolesByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllSupervisorJobRolesByPeriod" message="tns:IService_GetAllSupervisorJobRolesByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllSupervisorJobRolesByPeriodResponse" message="tns:IService_GetAllSupervisorJobRolesByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleSupervisor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveJobRoleSupervisor" message="tns:IService_RemoveJobRoleSupervisor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveJobRoleSupervisorResponse" message="tns:IService_RemoveJobRoleSupervisor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole" message="tns:IService_RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRoleResponse" message="tns:IService_RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyJobRoleSupervisors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyJobRoleSupervisors" message="tns:IService_ModifyJobRoleSupervisors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyJobRoleSupervisorsResponse" message="tns:IService_ModifyJobRoleSupervisors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPeriodTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPeriodTypes" message="tns:IService_GetAllPeriodTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPeriodTypesResponse" message="tns:IService_GetAllPeriodTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPeriodType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddPeriodType" message="tns:IService_AddPeriodType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddPeriodTypeResponse" message="tns:IService_AddPeriodType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePeriodType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemovePeriodType" message="tns:IService_RemovePeriodType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemovePeriodTypeResponse" message="tns:IService_RemovePeriodType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyPeriodType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyPeriodType" message="tns:IService_ModifyPeriodType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyPeriodTypeResponse" message="tns:IService_ModifyPeriodType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddCompany" message="tns:IService_AddCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddCompanyResponse" message="tns:IService_AddCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllCompanies" message="tns:IService_GetAllCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllCompaniesResponse" message="tns:IService_GetAllCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveCompany" message="tns:IService_RemoveCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveCompanyResponse" message="tns:IService_RemoveCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyCompany" message="tns:IService_ModifyCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyCompanyResponse" message="tns:IService_ModifyCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyDepartmentByCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCompanyDepartmentByCompany" message="tns:IService_GetCompanyDepartmentByCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCompanyDepartmentByCompanyResponse" message="tns:IService_GetCompanyDepartmentByCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffLearning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddStaffLearning" message="tns:IService_AddStaffLearning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddStaffLearningResponse" message="tns:IService_AddStaffLearning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffLearning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStaffLearning" message="tns:IService_GetAllStaffLearning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStaffLearningResponse" message="tns:IService_GetAllStaffLearning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffLearning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveStaffLearning" message="tns:IService_RemoveStaffLearning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveStaffLearningResponse" message="tns:IService_RemoveStaffLearning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffLearning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyStaffLearning" message="tns:IService_ModifyStaffLearning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyStaffLearningResponse" message="tns:IService_ModifyStaffLearning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllLocations" message="tns:IService_GetAllLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllLocationsResponse" message="tns:IService_GetAllLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddLocation" message="tns:IService_AddLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddLocationResponse" message="tns:IService_AddLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyLocation" message="tns:IService_ModifyLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyLocationResponse" message="tns:IService_ModifyLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveLocation" message="tns:IService_RemoveLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveLocationResponse" message="tns:IService_RemoveLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStaffLocations" message="tns:IService_GetAllStaffLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStaffLocationsResponse" message="tns:IService_GetAllStaffLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddStaffLocation" message="tns:IService_AddStaffLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddStaffLocationResponse" message="tns:IService_AddStaffLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyStaffLocation" message="tns:IService_ModifyStaffLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyStaffLocationResponse" message="tns:IService_ModifyStaffLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveStaffLocation" message="tns:IService_RemoveStaffLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveStaffLocationResponse" message="tns:IService_RemoveStaffLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLoginDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllLoginDetails" message="tns:IService_GetAllLoginDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllLoginDetailsResponse" message="tns:IService_GetAllLoginDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetLoginDetailPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ResetLoginDetailPassword" message="tns:IService_ResetLoginDetailPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ResetLoginDetailPasswordResponse" message="tns:IService_ResetLoginDetailPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLoginDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyLoginDetail" message="tns:IService_ModifyLoginDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyLoginDetailResponse" message="tns:IService_ModifyLoginDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ChangePassword" message="tns:IService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ChangePasswordResponse" message="tns:IService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffAssessments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffAssessments" message="tns:IService_GetStaffAssessments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffAssessmentsResponse" message="tns:IService_GetStaffAssessments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsStaffLevelExistInAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsStaffLevelExistInAssessment" message="tns:IService_IsStaffLevelExistInAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsStaffLevelExistInAssessmentResponse" message="tns:IService_IsStaffLevelExistInAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadInpsExcel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ReadInpsExcel" message="tns:IService_ReadInpsExcel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ReadInpsExcelResponse" message="tns:IService_ReadInpsExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SaveInps" message="tns:IService_SaveInps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SaveInpsResponse" message="tns:IService_SaveInps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInpsByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllInpsByPeriod" message="tns:IService_GetAllInpsByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllInpsByPeriodResponse" message="tns:IService_GetAllInpsByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddInps" message="tns:IService_AddInps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddInpsResponse" message="tns:IService_AddInps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllInps" message="tns:IService_GetAllInps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllInpsResponse" message="tns:IService_GetAllInps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveInps" message="tns:IService_RemoveInps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveInpsResponse" message="tns:IService_RemoveInps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyInps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyInps" message="tns:IService_ModifyInps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyInpsResponse" message="tns:IService_ModifyInps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInpsByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetInpsByPeriod" message="tns:IService_GetInpsByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetInpsByPeriodResponse" message="tns:IService_GetInpsByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInpsByPeriodAndType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetInpsByPeriodAndType" message="tns:IService_GetInpsByPeriodAndType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetInpsByPeriodAndTypeResponse" message="tns:IService_GetInpsByPeriodAndType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInpsRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddInpsRating" message="tns:IService_AddInpsRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddInpsRatingResponse" message="tns:IService_AddInpsRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInpsRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllInpsRating" message="tns:IService_GetAllInpsRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllInpsRatingResponse" message="tns:IService_GetAllInpsRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInpsRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveInpsRating" message="tns:IService_RemoveInpsRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveInpsRatingResponse" message="tns:IService_RemoveInpsRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyInpsRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyInpsRating" message="tns:IService_ModifyInpsRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyInpsRatingResponse" message="tns:IService_ModifyInpsRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInpsRatingByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveInpsRatingByPeriod" message="tns:IService_RemoveInpsRatingByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveInpsRatingByPeriodResponse" message="tns:IService_RemoveInpsRatingByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInpsRatingByPeriodAndType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetInpsRatingByPeriodAndType" message="tns:IService_GetInpsRatingByPeriodAndType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetInpsRatingByPeriodAndTypeResponse" message="tns:IService_GetInpsRatingByPeriodAndType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInpsType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllInpsType" message="tns:IService_GetAllInpsType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllInpsTypeResponse" message="tns:IService_GetAllInpsType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInpsType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddInpsType" message="tns:IService_AddInpsType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddInpsTypeResponse" message="tns:IService_AddInpsType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyInpsType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyInpsType" message="tns:IService_ModifyInpsType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyInpsTypeResponse" message="tns:IService_ModifyInpsType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInpsType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveInpsType" message="tns:IService_RemoveInpsType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveInpsTypeResponse" message="tns:IService_RemoveInpsType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserAccessKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ValidateUserAccessKey" message="tns:IService_ValidateUserAccessKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ValidateUserAccessKeyResponse" message="tns:IService_ValidateUserAccessKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffById" message="tns:IService_GetStaffById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffByIdResponse" message="tns:IService_GetStaffById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPaceArea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadPaceArea" message="tns:IService_LoadPaceArea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadPaceAreaResponse" message="tns:IService_LoadPaceArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCurrentAppraisalDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadCurrentAppraisalDetail" message="tns:IService_LoadCurrentAppraisalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadCurrentAppraisalDetailResponse" message="tns:IService_LoadCurrentAppraisalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMetrices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadMetrices" message="tns:IService_LoadMetrices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadMetricesResponse" message="tns:IService_LoadMetrices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppraisalOption">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadAppraisalOption" message="tns:IService_LoadAppraisalOption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadAppraisalOptionResponse" message="tns:IService_LoadAppraisalOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadComment" message="tns:IService_LoadComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadCommentResponse" message="tns:IService_LoadComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRecommendation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadRecommendation" message="tns:IService_LoadRecommendation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadRecommendationResponse" message="tns:IService_LoadRecommendation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSupervisorsAppraisee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadSupervisorsAppraisee" message="tns:IService_LoadSupervisorsAppraisee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadSupervisorsAppraiseeResponse" message="tns:IService_LoadSupervisorsAppraisee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffByLoginName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffByLoginName" message="tns:IService_GetStaffByLoginName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffByLoginNameResponse" message="tns:IService_GetStaffByLoginName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPaceByStaffAndPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadPaceByStaffAndPeriod" message="tns:IService_LoadPaceByStaffAndPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadPaceByStaffAndPeriodResponse" message="tns:IService_LoadPaceByStaffAndPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AppraiseStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AppraiseStaff" message="tns:IService_AppraiseStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AppraiseStaffResponse" message="tns:IService_AppraiseStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadStaffAppraisal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadStaffAppraisal" message="tns:IService_LoadStaffAppraisal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadStaffAppraisalResponse" message="tns:IService_LoadStaffAppraisal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCurrentPeriod" message="tns:IService_GetCurrentPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCurrentPeriodResponse" message="tns:IService_GetCurrentPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppraiseeSupervisor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadAppraiseeSupervisor" message="tns:IService_LoadAppraiseeSupervisor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadAppraiseeSupervisorResponse" message="tns:IService_LoadAppraiseeSupervisor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllGradeScale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadAllGradeScale" message="tns:IService_LoadAllGradeScale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadAllGradeScaleResponse" message="tns:IService_LoadAllGradeScale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppraiseeHod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAppraiseeHod" message="tns:IService_GetAppraiseeHod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAppraiseeHodResponse" message="tns:IService_GetAppraiseeHod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllPaceRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadAllPaceRating" message="tns:IService_LoadAllPaceRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadAllPaceRatingResponse" message="tns:IService_LoadAllPaceRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffType" message="tns:IService_GetStaffType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffTypeResponse" message="tns:IService_GetStaffType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadHodAppraisees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoadHodAppraisees" message="tns:IService_LoadHodAppraisees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoadHodAppraiseesResponse" message="tns:IService_LoadHodAppraisees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAppraisal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyAppraisal" message="tns:IService_ModifyAppraisal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyAppraisalResponse" message="tns:IService_ModifyAppraisal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptOrRejectAppraisal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AcceptOrRejectAppraisal" message="tns:IService_AcceptOrRejectAppraisal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AcceptOrRejectAppraisalResponse" message="tns:IService_AcceptOrRejectAppraisal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/CreateNewPeriod" message="tns:IService_CreateNewPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/CreateNewPeriodResponse" message="tns:IService_CreateNewPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPeriods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPeriods" message="tns:IService_GetAllPeriods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPeriodsResponse" message="tns:IService_GetAllPeriods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLearningByStaffAndPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLearningByStaffAndPeriod" message="tns:IService_GetLearningByStaffAndPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLearningByStaffAndPeriodResponse" message="tns:IService_GetLearningByStaffAndPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppraisalReportByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAppraisalReportByPeriod" message="tns:IService_GetAppraisalReportByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAppraisalReportByPeriodResponse" message="tns:IService_GetAppraisalReportByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffs" message="tns:IService_GetStaffs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffsResponse" message="tns:IService_GetStaffs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStaffs" message="tns:IService_GetAllStaffs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStaffsResponse" message="tns:IService_GetAllStaffs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffByUserName" message="tns:IService_GetStaffByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffByUserNameResponse" message="tns:IService_GetStaffByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddStaff" message="tns:IService_AddStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddStaffResponse" message="tns:IService_AddStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyStaff" message="tns:IService_ModifyStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyStaffResponse" message="tns:IService_ModifyStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ValidateStaff" message="tns:IService_ValidateStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ValidateStaffResponse" message="tns:IService_ValidateStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveStaff" message="tns:IService_RemoveStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveStaffResponse" message="tns:IService_RemoveStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRoles" message="tns:IService_GetRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetRolesResponse" message="tns:IService_GetRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllRoles" message="tns:IService_GetAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllRolesResponse" message="tns:IService_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddRole" message="tns:IService_AddRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddRoleResponse" message="tns:IService_AddRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignRightToRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AssignRightToRole" message="tns:IService_AssignRightToRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AssignRightToRoleResponse" message="tns:IService_AssignRightToRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyRole" message="tns:IService_ModifyRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyRoleResponse" message="tns:IService_ModifyRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveRole" message="tns:IService_RemoveRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveRoleResponse" message="tns:IService_RemoveRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllRights" message="tns:IService_GetAllRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllRightsResponse" message="tns:IService_GetAllRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddRight" message="tns:IService_AddRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddRightResponse" message="tns:IService_AddRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyRight" message="tns:IService_ModifyRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyRightResponse" message="tns:IService_ModifyRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveRight" message="tns:IService_RemoveRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveRightResponse" message="tns:IService_RemoveRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddJobRole" message="tns:IService_AddJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddJobRoleResponse" message="tns:IService_AddJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllJobRoles" message="tns:IService_GetAllJobRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllJobRolesResponse" message="tns:IService_GetAllJobRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveJobRole" message="tns:IService_RemoveJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveJobRoleResponse" message="tns:IService_RemoveJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyJobRole" message="tns:IService_ModifyJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyJobRoleResponse" message="tns:IService_ModifyJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddLevel" message="tns:IService_AddLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddLevelResponse" message="tns:IService_AddLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLevels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllLevels" message="tns:IService_GetAllLevels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllLevelsResponse" message="tns:IService_GetAllLevels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveLevel" message="tns:IService_RemoveLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveLevelResponse" message="tns:IService_RemoveLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyLevel" message="tns:IService_ModifyLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyLevelResponse" message="tns:IService_ModifyLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddDepartment" message="tns:IService_AddDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddDepartmentResponse" message="tns:IService_AddDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllDepartments" message="tns:IService_GetAllDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllDepartmentsResponse" message="tns:IService_GetAllDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveDepartment" message="tns:IService_RemoveDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveDepartmentResponse" message="tns:IService_RemoveDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyDepartment" message="tns:IService_ModifyDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyDepartmentResponse" message="tns:IService_ModifyDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddStaffLevel" message="tns:IService_AddStaffLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddStaffLevelResponse" message="tns:IService_AddStaffLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffLevels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStaffLevels" message="tns:IService_GetAllStaffLevels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStaffLevelsResponse" message="tns:IService_GetAllStaffLevels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByStaffAndPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetByStaffAndPeriod" message="tns:IService_GetByStaffAndPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetByStaffAndPeriodResponse" message="tns:IService_GetByStaffAndPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveStaffLevel" message="tns:IService_RemoveStaffLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveStaffLevelResponse" message="tns:IService_RemoveStaffLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyStaffLevel" message="tns:IService_ModifyStaffLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyStaffLevelResponse" message="tns:IService_ModifyStaffLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffCdjr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddStaffCdjr" message="tns:IService_AddStaffCdjr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddStaffCdjrResponse" message="tns:IService_AddStaffCdjr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffCdjrs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStaffCdjrs" message="tns:IService_GetAllStaffCdjrs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStaffCdjrsResponse" message="tns:IService_GetAllStaffCdjrs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffCdjrByStaffAndPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStaffCdjrByStaffAndPeriod" message="tns:IService_GetStaffCdjrByStaffAndPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStaffCdjrByStaffAndPeriodResponse" message="tns:IService_GetStaffCdjrByStaffAndPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffCdjr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveStaffCdjr" message="tns:IService_RemoveStaffCdjr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveStaffCdjrResponse" message="tns:IService_RemoveStaffCdjr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffCdjr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyStaffCdjr" message="tns:IService_ModifyStaffCdjr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyStaffCdjrResponse" message="tns:IService_ModifyStaffCdjr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCompanyDepartmentJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddCompanyDepartmentJobRole" message="tns:IService_AddCompanyDepartmentJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddCompanyDepartmentJobRoleResponse" message="tns:IService_AddCompanyDepartmentJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanyDepartmentJobRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllCompanyDepartmentJobRoles" message="tns:IService_GetAllCompanyDepartmentJobRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllCompanyDepartmentJobRolesResponse" message="tns:IService_GetAllCompanyDepartmentJobRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompanyDepartmentJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveCompanyDepartmentJobRole" message="tns:IService_RemoveCompanyDepartmentJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveCompanyDepartmentJobRoleResponse" message="tns:IService_RemoveCompanyDepartmentJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCompanyDepartmentJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyCompanyDepartmentJobRole" message="tns:IService_ModifyCompanyDepartmentJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyCompanyDepartmentJobRoleResponse" message="tns:IService_ModifyCompanyDepartmentJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddJobRoleHods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddJobRoleHods" message="tns:IService_AddJobRoleHods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddJobRoleHodsResponse" message="tns:IService_AddJobRoleHods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobRoleHods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllJobRoleHods" message="tns:IService_GetAllJobRoleHods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllJobRoleHodsResponse" message="tns:IService_GetAllJobRoleHods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobRolesUnderHodByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetJobRolesUnderHodByPeriod" message="tns:IService_GetJobRolesUnderHodByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetJobRolesUnderHodByPeriodResponse" message="tns:IService_GetJobRolesUnderHodByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleHod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveJobRoleHod" message="tns:IService_RemoveJobRoleHod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveJobRoleHodResponse" message="tns:IService_RemoveJobRoleHod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyJobRoleHods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyJobRoleHods" message="tns:IService_ModifyJobRoleHods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyJobRoleHodsResponse" message="tns:IService_ModifyJobRoleHods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHodJobRolesByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllHodJobRolesByPeriod" message="tns:IService_GetAllHodJobRolesByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllHodJobRolesByPeriodResponse" message="tns:IService_GetAllHodJobRolesByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleHodByHodCompanyDepartmentJobRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveJobRoleHodByHodCompanyDepartmentJobRole" message="tns:IService_RemoveJobRoleHodByHodCompanyDepartmentJobRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveJobRoleHodByHodCompanyDepartmentJobRoleResponse" message="tns:IService_RemoveJobRoleHodByHodCompanyDepartmentJobRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetric">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyMetric" message="tns:IService_ModifyMetric_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyMetricResponse" message="tns:IService_ModifyMetric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMetrics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddMetrics" message="tns:IService_AddMetrics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddMetricsResponse" message="tns:IService_AddMetrics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMetrices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddMetrices" message="tns:IService_AddMetrices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddMetricesResponse" message="tns:IService_AddMetrices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricesByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMetricesByPeriod" message="tns:IService_GetAllMetricesByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllMetricesByPeriodResponse" message="tns:IService_GetAllMetricesByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricesByCompanyDepartmetJobRoleAndPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMetricesByCompanyDepartmetJobRoleAndPeriod" message="tns:IService_GetMetricesByCompanyDepartmetJobRoleAndPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMetricesByCompanyDepartmetJobRoleAndPeriodResponse" message="tns:IService_GetMetricesByCompanyDepartmetJobRoleAndPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricesByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMetricesByPeriod" message="tns:IService_GetMetricesByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMetricesByPeriodResponse" message="tns:IService_GetMetricesByPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetrics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveMetrics" message="tns:IService_RemoveMetrics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveMetricsResponse" message="tns:IService_RemoveMetrics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetrics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ModifyMetrics" message="tns:IService_ModifyMetrics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ModifyMetricsResponse" message="tns:IService_ModifyMetrics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricsByCompanyDepartmentJobRoleAndPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveMetricsByCompanyDepartmentJobRoleAndPeriod" message="tns:IService_RemoveMetricsByCompanyDepartmentJobRoleAndPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveMetricsByCompanyDepartmentJobRoleAndPeriodResponse" message="tns:IService_RemoveMetricsByCompanyDepartmentJobRoleAndPeriod_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#CustomBinding_IService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllNpsByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllNpsByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyNps">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyNps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricesByPeriodAndPerspective">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllMetricesByPeriodAndPerspective" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricAndAssociatedRatings">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveMetricAndAssociatedRatings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMetricRatings">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddMetricRatings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricRatingsByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllMetricRatingsByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricRatings">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveMetricRatings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetricRatings">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyMetricRatings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricRatingsByMetrics">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetMetricRatingsByMetrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricRatingByMetrics">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveMetricRatingByMetrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRatings">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllRatings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRatingType">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddRatingType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRatingTypes">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllRatingTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRatingType">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveRatingType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRatingType">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyRatingType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMetricsPerspective">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddMetricsPerspective" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricsPerspectives">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllMetricsPerspectives" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricsPerspective">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveMetricsPerspective" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetricsPerspective">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyMetricsPerspective" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemovePeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewCurrentPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/SetNewCurrentPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStatus">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddJobRoleSupervisors">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddJobRoleSupervisors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobRolesUnderSupervisorByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetJobRolesUnderSupervisorByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupervisorJobRolesByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllSupervisorJobRolesByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleSupervisor">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveJobRoleSupervisor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveJobRoleSupervisorBySupervisorCompanyDepartmentJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyJobRoleSupervisors">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyJobRoleSupervisors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPeriodTypes">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllPeriodTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPeriodType">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddPeriodType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePeriodType">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemovePeriodType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyPeriodType">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyPeriodType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompany">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCompany">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyDepartmentByCompany">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetCompanyDepartmentByCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffLearning">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddStaffLearning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffLearning">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllStaffLearning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffLearning">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveStaffLearning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffLearning">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyStaffLearning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllLocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLocation">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLocation">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLocation">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffLocations">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllStaffLocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffLocation">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddStaffLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffLocation">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyStaffLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffLocation">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveStaffLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLoginDetails">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllLoginDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetLoginDetailPassword">
+      <soap12:operation soapAction="http://tempuri.org/IService/ResetLoginDetailPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLoginDetail">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyLoginDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/IService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffAssessments">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffAssessments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsStaffLevelExistInAssessment">
+      <soap12:operation soapAction="http://tempuri.org/IService/IsStaffLevelExistInAssessment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadInpsExcel">
+      <soap12:operation soapAction="http://tempuri.org/IService/ReadInpsExcel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInps">
+      <soap12:operation soapAction="http://tempuri.org/IService/SaveInps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInpsByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllInpsByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInps">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddInps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInps">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllInps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInps">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveInps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyInps">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyInps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpsByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetInpsByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpsByPeriodAndType">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetInpsByPeriodAndType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInpsRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddInpsRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInpsRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllInpsRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInpsRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveInpsRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyInpsRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyInpsRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInpsRatingByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveInpsRatingByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpsRatingByPeriodAndType">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetInpsRatingByPeriodAndType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInpsType">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllInpsType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInpsType">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddInpsType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyInpsType">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyInpsType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInpsType">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveInpsType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserAccessKey">
+      <soap12:operation soapAction="http://tempuri.org/IService/ValidateUserAccessKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffById">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPaceArea">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadPaceArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCurrentAppraisalDetail">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadCurrentAppraisalDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMetrices">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadMetrices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppraisalOption">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadAppraisalOption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadComment">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRecommendation">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadRecommendation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSupervisorsAppraisee">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadSupervisorsAppraisee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffByLoginName">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffByLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPaceByStaffAndPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadPaceByStaffAndPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppraiseStaff">
+      <soap12:operation soapAction="http://tempuri.org/IService/AppraiseStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadStaffAppraisal">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadStaffAppraisal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetCurrentPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppraiseeSupervisor">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadAppraiseeSupervisor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllGradeScale">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadAllGradeScale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppraiseeHod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAppraiseeHod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllPaceRating">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadAllPaceRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffType">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadHodAppraisees">
+      <soap12:operation soapAction="http://tempuri.org/IService/LoadHodAppraisees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAppraisal">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyAppraisal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptOrRejectAppraisal">
+      <soap12:operation soapAction="http://tempuri.org/IService/AcceptOrRejectAppraisal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/CreateNewPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPeriods">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllPeriods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLearningByStaffAndPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetLearningByStaffAndPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppraisalReportByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAppraisalReportByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffs">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffs">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllStaffs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffByUserName">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaff">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateStaff">
+      <soap12:operation soapAction="http://tempuri.org/IService/ValidateStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaff">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignRightToRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/AssignRightToRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRights">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRight">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRight">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRight">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobRoles">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllJobRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLevel">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLevels">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllLevels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLevel">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLevel">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartments">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffLevel">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddStaffLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffLevels">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllStaffLevels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByStaffAndPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetByStaffAndPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffLevel">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveStaffLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffLevel">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyStaffLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaffCdjr">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddStaffCdjr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffCdjrs">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllStaffCdjrs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffCdjrByStaffAndPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStaffCdjrByStaffAndPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStaffCdjr">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveStaffCdjr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyStaffCdjr">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyStaffCdjr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompanyDepartmentJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddCompanyDepartmentJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanyDepartmentJobRoles">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllCompanyDepartmentJobRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompanyDepartmentJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveCompanyDepartmentJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCompanyDepartmentJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyCompanyDepartmentJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddJobRoleHods">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddJobRoleHods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobRoleHods">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllJobRoleHods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobRolesUnderHodByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetJobRolesUnderHodByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleHod">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveJobRoleHod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyJobRoleHods">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyJobRoleHods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHodJobRolesByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllHodJobRolesByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveJobRoleHodByHodCompanyDepartmentJobRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveJobRoleHodByHodCompanyDepartmentJobRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetric">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyMetric" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMetrics">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddMetrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMetrices">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddMetrices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMetricesByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllMetricesByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricesByCompanyDepartmetJobRoleAndPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetMetricesByCompanyDepartmetJobRoleAndPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricesByPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetMetricesByPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetrics">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveMetrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMetrics">
+      <soap12:operation soapAction="http://tempuri.org/IService/ModifyMetrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMetricsByCompanyDepartmentJobRoleAndPeriod">
+      <soap12:operation soapAction="http://tempuri.org/IService/RemoveMetricsByCompanyDepartmentJobRoleAndPeriod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="CustomBinding_IService" binding="tns:CustomBinding_IService">
+      <soap12:address location="http://localhost:49464/Service.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:49464/Service.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

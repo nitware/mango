@@ -1,0 +1,19 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_IService" sendTimeout="01:59:00" closeTimeout="01:59:00" openTimeout="01:59:00" receiveTimeout="01:59:00" >
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:49464/Service.svc" 
+                      binding="customBinding"
+                      bindingConfiguration="CustomBinding_IService" 
+                      contract="MangoService.IService"
+                      name="CustomBinding_IService" />
+        </client>
+    </system.serviceModel>
+</configuration>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Mango.Model.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mango.Model.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49464/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Mango.Model" />
+  <xs:complexType name="Status">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="PeriodType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:short" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PeriodType" nillable="true" type="tns:PeriodType" />
+  <xs:complexType name="ArrayOfMetrics">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Metrics" nillable="true" type="tns:Metrics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetrics" nillable="true" type="tns:ArrayOfMetrics" />
+  <xs:complexType name="Metrics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+      <xs:element minOccurs="0" name="DataSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="JobRoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kpi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Measure" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q1:Period" />
+      <xs:element minOccurs="0" name="Perspective" nillable="true" type="tns:MetricsPerspective" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="ResponsibleDepartment" nillable="true" type="q2:Department" />
+      <xs:element minOccurs="0" name="Score" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Target" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Metrics" nillable="true" type="tns:Metrics" />
+  <xs:complexType name="CompanyDepartmentJobRole">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Company" nillable="true" type="q3:Company" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Department" nillable="true" type="q4:Department" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="JobRole" nillable="true" type="q5:JobRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+  <xs:complexType name="MetricsPerspective">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetricsPerspective" nillable="true" type="tns:MetricsPerspective" />
+  <xs:complexType name="ArrayOfMetricsPerspective">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetricsPerspective" nillable="true" type="tns:MetricsPerspective" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetricsPerspective" nillable="true" type="tns:ArrayOfMetricsPerspective" />
+  <xs:complexType name="CurrentPeriod">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q6:Period" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrentPeriod" nillable="true" type="tns:CurrentPeriod" />
+  <xs:complexType name="ArrayOfStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatus" nillable="true" type="tns:ArrayOfStatus" />
+  <xs:complexType name="ArrayOfJobRoleSupervisor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobRoleSupervisor" nillable="true" type="tns:JobRoleSupervisor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobRoleSupervisor" nillable="true" type="tns:ArrayOfJobRoleSupervisor" />
+  <xs:complexType name="JobRoleSupervisor">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q7:Period" />
+      <xs:element minOccurs="0" name="StaffCompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+      <xs:element minOccurs="0" name="SupervisorCompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobRoleSupervisor" nillable="true" type="tns:JobRoleSupervisor" />
+  <xs:complexType name="ArrayOfPeriodType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PeriodType" nillable="true" type="tns:PeriodType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeriodType" nillable="true" type="tns:ArrayOfPeriodType" />
+  <xs:complexType name="ArrayOfCompanyDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompanyDepartment" nillable="true" type="tns:CompanyDepartment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompanyDepartment" nillable="true" type="tns:ArrayOfCompanyDepartment" />
+  <xs:complexType name="CompanyDepartment">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Company" nillable="true" type="q8:Company" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Department" nillable="true" type="q9:Department" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompanyDepartment" nillable="true" type="tns:CompanyDepartment" />
+  <xs:complexType name="StaffLearning">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PercentScore" type="xs:decimal" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q10:Period" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Staff" nillable="true" type="q11:Staff" />
+      <xs:element minOccurs="0" name="TrainingScore" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffLearning" nillable="true" type="tns:StaffLearning" />
+  <xs:complexType name="ArrayOfStaffLearning">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffLearning" nillable="true" type="tns:StaffLearning" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffLearning" nillable="true" type="tns:ArrayOfStaffLearning" />
+  <xs:complexType name="ArrayOfStaffLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffLocation" nillable="true" type="tns:StaffLocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffLocation" nillable="true" type="tns:ArrayOfStaffLocation" />
+  <xs:complexType name="StaffLocation">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Location" nillable="true" type="q12:Location" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q13:Period" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Staff" nillable="true" type="q14:Staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffLocation" nillable="true" type="tns:StaffLocation" />
+  <xs:complexType name="ArrayOfStaffAssessment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffAssessment" nillable="true" type="tns:StaffAssessment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffAssessment" nillable="true" type="tns:ArrayOfStaffAssessment" />
+  <xs:complexType name="StaffAssessment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Mango.Model" base="q15:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Appraisal" nillable="true" type="q15:Appraisal" />
+          <xs:element minOccurs="0" name="Enable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Period" nillable="true" type="tns:AssessmentPeriod" />
+          <xs:element minOccurs="0" name="Score" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StaffAssessment" nillable="true" type="tns:StaffAssessment" />
+  <xs:complexType name="AssessmentPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assessment" nillable="true" type="tns:Assessment" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q16:Period" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssessmentPeriod" nillable="true" type="tns:AssessmentPeriod" />
+  <xs:complexType name="Assessment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Indicator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Skill" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Assessment" nillable="true" type="tns:Assessment" />
+  <xs:complexType name="InpsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InpsType" nillable="true" type="tns:InpsType" />
+  <xs:complexType name="ArrayOfInps">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Inps" nillable="true" type="tns:Inps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInps" nillable="true" type="tns:ArrayOfInps" />
+  <xs:complexType name="Inps">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Mango.Model" base="q17:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsSupervisor" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Kpi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Measure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MetricRatings" nillable="true" type="q17:ArrayOfMetricRating" />
+          <xs:element minOccurs="0" name="Period" nillable="true" type="q17:Period" />
+          <xs:element minOccurs="0" name="Rating" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ResponsibleDepartment" nillable="true" type="q17:Department" />
+          <xs:element minOccurs="0" name="Score" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Staff" nillable="true" type="q17:Staff" />
+          <xs:element minOccurs="0" name="Target" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalScore" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="tns:InpsType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Inps" nillable="true" type="tns:Inps" />
+  <xs:complexType name="ArrayOfInpsRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InpsRating" nillable="true" type="tns:InpsRating" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInpsRating" nillable="true" type="tns:ArrayOfInpsRating" />
+  <xs:complexType name="InpsRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" type="xs:decimal" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q18:Period" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Rating" nillable="true" type="q19:Rating" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="RatingType" nillable="true" type="q20:RatingType" />
+      <xs:element minOccurs="0" name="To" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="tns:InpsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InpsRating" nillable="true" type="tns:InpsRating" />
+  <xs:complexType name="ArrayOfInpsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InpsType" nillable="true" type="tns:InpsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInpsType" nillable="true" type="tns:ArrayOfInpsType" />
+  <xs:complexType name="StaffLevel">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Level" nillable="true" type="q21:Level" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q22:Period" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Staff" nillable="true" type="q23:Staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffLevel" nillable="true" type="tns:StaffLevel" />
+  <xs:complexType name="ArrayOfStaffLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffLevel" nillable="true" type="tns:StaffLevel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffLevel" nillable="true" type="tns:ArrayOfStaffLevel" />
+  <xs:complexType name="StaffCdjr">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q24:Period" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Staff" nillable="true" type="q25:Staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffCdjr" nillable="true" type="tns:StaffCdjr" />
+  <xs:complexType name="ArrayOfStaffCdjr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffCdjr" nillable="true" type="tns:StaffCdjr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffCdjr" nillable="true" type="tns:ArrayOfStaffCdjr" />
+  <xs:complexType name="ArrayOfCompanyDepartmentJobRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompanyDepartmentJobRole" nillable="true" type="tns:ArrayOfCompanyDepartmentJobRole" />
+  <xs:complexType name="ArrayOfJobRoleHod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobRoleHod" nillable="true" type="tns:JobRoleHod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobRoleHod" nillable="true" type="tns:ArrayOfJobRoleHod" />
+  <xs:complexType name="JobRoleHod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HodCompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Mango.Model" minOccurs="0" name="Period" nillable="true" type="q26:Period" />
+      <xs:element minOccurs="0" name="StaffCompanyDepartmentJobRole" nillable="true" type="tns:CompanyDepartmentJobRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobRoleHod" nillable="true" type="tns:JobRoleHod" />
+</xs:schema>
